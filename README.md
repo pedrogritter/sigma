@@ -12,52 +12,7 @@ What things you need to install the software and how to install:
 2. Django 2.1.7
 3. PostgreSQL
 
-#### Install PostgreSQL - In case it is not installed in the system
-
-+ Start by updating the apt-get’s list of packages:
-
-```
-sudo apt-get update
-```
-
-+ Next, install Postgres by entering the following command in the terminal:
-
-```
-sudo apt-get install postgresql postgresql-contrib libpq-dev
-```
-
-+ By default Postgres creates a postgres user and is the only user who can connect to the server. We’ll want to create ourselves on the server with superuser capabilities with the same name as our login name:
-
-```
-sudo -u postgres createuser --superuser $USER
-```
-
-+ Enter your desired password when prompted.
-
-+ Next, we’ll have to create a database with the same name as our login name since this is what Postgres expects by default when connecting to the server with your login name. Set the password to something strong and secure:
-:
-
-```
-sudo -u postgres createdb $USER
-```
-
-+ Navigate to your home directory and enter the following command to create the .psql_history in order to save your history:
-
-```
-touch .psql_history
-```
-+ Type psql on your terminal to connect to the server:
-
-```
-psql (10.6 (Ubuntu 10.6-0ubuntu0.18.04.1))
-Type "help" for help.
-
-user=# 
-```
-
-+ Enter \q to quit and return to your terminal.
-
-
+[Install PostgreSQL - In case it is not installed in the system](https://github.com/pedrogritter/sigma/wiki/Install-PostgreSQL)
 
 ### Installing 
 Here is a step by step series of examples that tell you how to get a development env running
