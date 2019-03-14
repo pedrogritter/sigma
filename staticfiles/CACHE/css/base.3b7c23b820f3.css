@@ -1,0 +1,84 @@
+/* line 1, static/css/base.scss */
+html,
+body {
+  background-color: lightcyan; }
+
+/* line 8, static/css/base.scss */
+.menu__burger {
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: 50px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 99; }
+  /* line 18, static/css/base.scss */
+  .menu__burger__span, .menu__burger__span:before, .menu__burger__span:after {
+    position: absolute;
+    height: 5px;
+    width: inherit;
+    background-color: #000;
+    transition: all 0.2s; }
+    /* line 24, static/css/base.scss */
+    .menu__burger__span:before {
+      content: "";
+      top: -10px; }
+    /* line 29, static/css/base.scss */
+    .menu__burger__span:after {
+      content: "";
+      top: 10px; }
+  /* line 36, static/css/base.scss */
+  .menu__burger--open .menu__burger__span, .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
+    background-color: transparent; }
+    /* line 38, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
+      background-color: #fff;
+      transform-origin: 0 50%; }
+    /* line 43, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:before {
+      transform: translateX(7px) translateY(-5px) rotate(45deg); }
+    /* line 46, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:after {
+      transform: translateX(7px) translateY(10px) rotate(-45deg); }
+
+/* line 52, static/css/base.scss */
+.menu__nav {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  height: 100%;
+  width: 25%;
+  overflow: scroll;
+  background-color: #333;
+  transition: all 0.3s;
+  z-index: 98; }
+  @media screen and (max-width: 768px) {
+    /* line 52, static/css/base.scss */
+    .menu__nav {
+      width: 90%;
+      right: -90%; } }
+  /* line 68, static/css/base.scss */
+  .menu__nav--open {
+    right: 0; }
+
+/* line 72, static/css/base.scss */
+.menu__list {
+  list-style: none;
+  position: absolute;
+  top: 60px;
+  left: 25px; }
+  /* line 78, static/css/base.scss */
+  .menu__list__item {
+    margin-left: 0;
+    margin-top: 25px;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out; }
+
+/* line 85, static/css/base.scss */
+.menu__link {
+  text-decoration: none;
+  color: #ddd; }
+  /* line 88, static/css/base.scss */
+  .menu__link:hover {
+    text-decoration: inherit;
+    color: #fff; }

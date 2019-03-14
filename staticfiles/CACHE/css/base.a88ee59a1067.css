@@ -1,0 +1,14 @@
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+/* line 3, static/css/base.scss */
+.slide-fade-enter-active {
+  transition: all .3s ease; }
+
+/* line 6, static/css/base.scss */
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+
+/* line 9, static/css/base.scss */
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0; }
