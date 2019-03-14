@@ -44,13 +44,13 @@ _________________________________________________________________________
 If it worked, terminal prompt should be similar to this:
 
 ```
-(venv) User@computer-UX430UAR:~/Documents/lti-project-G11$
+(venv) User@computer-UX430UAR:~/Documents/repository$
 ```
 
 +  Clone the repository to the destination folder
 
 ```
-git clone https://github.com/pedrogritter/lti-project-G11.git
+git clone https://github.com/pedrogritter/sigma.git
 ```
 + Install required dependencies by running:
 
