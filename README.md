@@ -59,9 +59,15 @@ git clone https://github.com/pedrogritter/sigma.git
 
 sudo apt-get install python3-dev # debian / Ubuntu
 
+
+# Install pip3 for python3:
+
+sudo apt install python3-pip
+
 # Then install all the packages in requirements.txt
 
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+
 ```
 
 
