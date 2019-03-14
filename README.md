@@ -188,7 +188,7 @@ This project is deployed on [Heroku](https://www.heroku.com/) over [here](http:/
 To deploy this on a live system enter the following command:
 
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 **A development server should be running at http://127.0.0.1:8000/**
