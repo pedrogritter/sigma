@@ -9,12 +9,13 @@
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.js"></script>
     <!-- Bulma Version 0.7.4-->
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/landing.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css">
     <style>
  html,body { font-family: 'Open Sans', serif; } .hero.is-info { background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://unsplash.it/1200/900?random') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size:
-cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is-success .nav { -webkit-box-shadow: none; box-shadow: none; } .hero .subtitle { padding: 3rem 0; line-height: 1.5; }
+cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is-success .nav { -webkit-box-shadow: none; box-shadow: none; } .hero .subtitle { padding: 3rem 0; line-height: 1.5; .footer{ height: 5%} }
     </style>
 </head>
 
@@ -69,6 +70,119 @@ cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is
                             </span>
                         </div>
                     </div>
+
+                    <!-- Slider Menu  -->
+
+                    <style>
+                      .menu {
+                            $root: &;
+
+                            &__burger {
+                            $burger: #{$root}__burger;
+                            width: 50px;
+                            height: 50px;
+                            right: 20px;
+                            top: 50px;
+                            position: fixed;
+                            cursor: pointer;
+                            z-index: 99;
+
+                            &__span {
+                              position: absolute;
+                              height: 5px;
+                              width: inherit;
+                              background-color: #000;
+                              transition: all 0.2s;
+                              &:before {
+                                @extend #{$burger}__span;
+                                content: "";
+                                top: -10px;
+                              }
+                              &:after {
+                                @extend #{$burger}__span;
+                                content: "";
+                                top: 10px;
+                              }
+                            }
+                            &--open {
+                              #{$burger}__span {
+                                background-color: transparent;
+                                &:before, &:after {
+                                  background-color: #fff;
+                                  transform-origin: 0 50%;
+                                }
+                                &:before {
+                                  transform: translateX(7px) translateY(-5px) rotate(45deg);
+                                }
+                                &:after {
+                                  transform: translateX(7px) translateY(10px) rotate(-45deg);
+                                }
+                              }
+                            }
+                            }
+                            &__nav {
+                            position: absolute;
+                            top: 0;
+                            right: -25%;
+                            height: 100%;
+                            width: 25%;
+                            overflow: scroll;
+                            background-color: #333;
+                            transition: all 0.3s;
+                            z-index: 98;
+
+                                @media screen and (max-width: 768px) {
+                              width: 90%;
+                              right: -90%;
+                            }
+
+                            &--open {
+                              right: 0;
+                                }
+                            }
+                            &__list {
+                              list-style: none;
+                              position: absolute;
+                              top: 60px;
+                              left: 25px;
+
+                              &__item {
+                                margin-left: 0;
+                                margin-top: 25px;
+                                font-size: 30px;
+                                transition: all 0.3s ease-in-out;
+                              }
+                            }
+                            &__link {
+                              text-decoration: none;
+                              color: #ddd;
+                              &:hover {
+                                    text-decoration: inherit;
+                                color: #fff;
+                              }
+                            }
+                            }
+                    </style>
+
+
+                    <div id="slider">
+
+                    </div>
+                    <template id="slidemenu">
+                     <div class="menu">
+                            <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
+                                <span class="menu__burger__span"></span>
+                            </div>
+                            <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
+                                  <ul class="menu__list">
+                                  <ul id="v-for-object" class="demo">
+                                        <li class="menu__list__item" v-for="(value, key) in object">
+                                            <a href= "{{value}}" class="menu__link"> {{key}} </a>
+                                        </li>
+                                  </ul>
+                            </nav>
+                        </div>
+                      </template>
                 </div>
             </nav>
             </div>
@@ -82,26 +196,14 @@ cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is
                         <h2 class="subtitle">
                             Simplifying what should be simple
                         </h2>
-                        <div class="box">
-                            <div class="field is-grouped">
-                                <p class="control is-expanded">
-                                    <input class="input" type="text" placeholder="Enter your email">
-                                </p>
-                                <p class="control">
-                                    <a class="button is-info">
-                                        Notify Me
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <footer class="footer is-pulled-bottom has-background-dark">
+            <footer class="footer is-pulled-bottom has-background-dark is-narrow">
                  <div class="container">
                    <div class="content has-text-centered is-centered has-text-white-ter">
-                     <div id="tsp">
+                     <div>
                        <p>
                          <a href="https://bulma.io">
                          <img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">
@@ -110,7 +212,7 @@ cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is
                                <br>
                                Source code licensed <a href="https://opensource.org/licenses/mit-license.php">MIT</a>.
                                <br>
-                               Website content licensed <a rel="license" href="https://ciencias.ulisboa.pt/">G11-LTI</a>.
+                               Website content licensed <a rel="license" href="https://ciencias.ulisboa.pt/">LTI-G11</a>.
                              </small>
                        </p>
                      </div>
@@ -119,7 +221,47 @@ cover; -o-background-size: cover; background-size: cover; } .hero .nav, .hero.is
              </footer>
 
     </section>
-    <script async type="text/javascript" src="../js/bulma.js"></script>
+
+    <script  type="text/javascript">// Still working on this
+
+        var vm = new Vue({
+            el: "#slider",
+
+            template: "#slidemenu",
+            // template: `
+            // <div class="menu">
+            //       <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
+            //           <span class="menu__burger__span"></span>
+            //       </div>
+            //       <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
+            //           <ul class="menu__list">
+            //           <ul id="v-for-object" class="demo"
+            //               <li class="menu__list__item" v-for="(value, key) in object">
+            //                   <a href="{{key}}" class="menu__link"> {{value}} </a>
+            //               </li>
+            //           </ul>
+            //       </nav>
+            //   </div>
+            // `,
+
+            data: {
+                open: false,
+                object: {
+                          Home:"http://sigma-alfa.herokuapp.com",
+                          Aluno: "",
+                          Professor: "",
+                          About: "",
+                        }
+                   },
+
+            methods: {
+                toggleNav: function() {
+                    this.open = !this.open
+                    this.$emit('toggle', this.open)
+                }
+            }
+        })
+</script>
 </body>
 
 </html>
