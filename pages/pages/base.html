@@ -22,30 +22,62 @@
 </head>
 
 <body>
+  <!-- Slider Menu Section -->
+  <script type="text/javascript">
+    var options = {{items_json | safe}};
+  </script>
+  <div id="app">
+
+    <!-- Simple TEMPLATE -->
+    <!-- <button @click="show = !show">
+                  Show menu
+    </button> -->
+
+    <!-- <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="show = !show">
+        <span class="menu__burger__span"></span>
+    </div>
+    <transition name="slide-fade">
+      <aside class="menu" v-if="show">
+        <ul class="menu-list">
+          <li v-for="option in options">
+            <a v-bind:href="option.url"> [[option.name]] </a>
+          </li>
+        </ul>
+      </aside>
+    </transition> -->
+
+    <!-- OLD TEMPLATE -->
+    <div class="menu">
+      <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
+        <span class="menu__burger__span"></span>
+      </div>
+      <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
+        <ul class="menu__list">
+          <li v-for="option in options">
+            <a class="is-size-4 is-size-4-mobile has-text-white" v-bind:href="option.url"> [[option.name]] </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Fullpage Hero Section -->
   <section class="hero is-info is-fullheight">
     <!-- Hero Head -->
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <!-- <a class="navbar-item" href="../"> -->
-            <!-- <img src="https://camo.githubusercontent.com/7e19121ade1fd4655927666ac9fdb75855c9e225/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6469637469636f6e732d746578742d616c69676e6d656e742f33322f7369676d612d3132382e706e67" alt="Logo">
-                        </a> -->
-            <!-- <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-            <span></span>
-            <span></span>
-            </span> -->
           </div>
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
               <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="http://sigma-alfa.herokuapp.com">
-                                    <span class="icon">
-                                        <i class="fa fa-home"></i>
-                                    </span>
-              <span>Home</span>
-              </a>
+                  <a class="button is-white is-outlined" href=" ">
+                      <span class="icon">
+                          <i class="fa fa-home"></i>
+                      </span>
+                  <span>Home</span>
+                  </a>
               </span>
               <span class="navbar-item">
                                 <a class="button is-white is-outlined" href="#">
@@ -78,54 +110,10 @@
         </div>
       </nav>
     </div>
-
-    <!-- Slider Menu  -->
-
-    <script type="text/javascript">
-      var options = {{items_json | safe}};
-    </script>
-    <div id="app">
-
-      <!-- Simple TEMPLATE -->
-      <!-- <button @click="show = !show">
-                    Show menu
-      </button> -->
-
-      <!-- <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="show = !show">
-          <span class="menu__burger__span"></span>
-      </div>
-      <transition name="slide-fade">
-        <aside class="menu" v-if="show">
-          <ul class="menu-list">
-            <li v-for="option in options">
-              <a v-bind:href="option.url"> [[option.name]] </a>
-            </li>
-          </ul>
-        </aside>
-      </transition> -->
-
-      <!-- OLD TEMPLATE -->
-      <div class="menu">
-        <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
-          <span class="menu__burger__span"></span>
-        </div>
-        <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
-          <ul class="menu__list">
-            <li v-for="option in options">
-              <a class="is-size-3 is-size-2-mobile" v-bind:href="option.url"> [[option.name]] </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
     <div class="hero-body">
       <!-- Content  -->
       {% block content %}{% endblock %}
     </div>
-
-
-
   </section>
   <!-- Footer Section -->
   <footer class="footer is-pulled-bottom has-background-dark is-narrow">
@@ -135,13 +123,13 @@
           <p>
             <a href="https://bulma.io">
                        <img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">
-                       </a>
+            </a>
             <small>
-                             <br>
-                             Source code licensed <a href="https://opensource.org/licenses/mit-license.php">MIT</a>.
-                             <br>
-                             Website content licensed <a rel="license" href="https://ciencias.ulisboa.pt/">LTI-G11</a>.
-                           </small>
+                <br>
+                    Source code licensed <a href="https://opensource.org/licenses/mit-license.php">MIT</a>.
+                <br>
+                    Website content licensed <a rel="license" href="https://ciencias.ulisboa.pt/">LTI-G11</a>.
+            </small>
           </p>
         </div>
       </div>
