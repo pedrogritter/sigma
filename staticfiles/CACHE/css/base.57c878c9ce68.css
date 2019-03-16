@@ -1,19 +1,46 @@
+/* line 3, static/css/base.scss */
+html,
+body {
+  font-family: 'Open Sans', serif; }
+
+/* line 8, static/css/base.scss */
+.hero.is-info {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://unsplash.it/1200/900?random") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/* line 16, static/css/base.scss */
+.hero .nav,
+.hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/* line 22, static/css/base.scss */
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5; }
+  /* line 25, static/css/base.scss */
+  .hero .subtitle .footer {
+    height: 5%; }
+
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
-/* line 3, static/css/base.scss */
+/* line 35, static/css/base.scss */
 .slide-fade-enter-active {
   transition: all .3s ease; }
 
-/* line 6, static/css/base.scss */
+/* line 38, static/css/base.scss */
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
 
-/* line 9, static/css/base.scss */
+/* line 41, static/css/base.scss */
 .slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0; }
 
-/* line 23, static/css/base.scss */
+/* line 55, static/css/base.scss */
 .menu__burger {
   width: 50px;
   height: 50px;
@@ -22,43 +49,42 @@
   position: fixed;
   cursor: pointer;
   z-index: 99; }
-  /* line 33, static/css/base.scss */
+  /* line 65, static/css/base.scss */
   .menu__burger__span, .menu__burger__span:before, .menu__burger__span:after {
     position: absolute;
     height: 5px;
     width: inherit;
-    background-color: #000;
+    background-color: #fff;
     transition: all 0.2s; }
-    /* line 39, static/css/base.scss */
+    /* line 71, static/css/base.scss */
     .menu__burger__span:before {
       content: "";
       top: -10px; }
-    /* line 44, static/css/base.scss */
+    /* line 76, static/css/base.scss */
     .menu__burger__span:after {
       content: "";
       top: 10px; }
-  /* line 51, static/css/base.scss */
+  /* line 83, static/css/base.scss */
   .menu__burger--open .menu__burger__span, .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
     background-color: transparent; }
-    /* line 53, static/css/base.scss */
+    /* line 85, static/css/base.scss */
     .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
       background-color: #fff;
-      transform-origin: 0 50%;
-      right: 20%; }
-    /* line 60, static/css/base.scss */
+      transform-origin: 0 50%; }
+    /* line 91, static/css/base.scss */
     .menu__burger--open .menu__burger__span:before {
       transform: translateX(7px) translateY(-5px) rotate(45deg); }
-    /* line 63, static/css/base.scss */
+    /* line 94, static/css/base.scss */
     .menu__burger--open .menu__burger__span:after {
       transform: translateX(7px) translateY(10px) rotate(-45deg); }
 
-/* line 69, static/css/base.scss */
+/* line 100, static/css/base.scss */
 .menu__nav {
   position: absolute;
   top: 0;
   left: -25%;
   height: 100%;
-  width: 10%;
+  width: 15%;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -66,32 +92,33 @@
   transition: all 0.3s;
   z-index: 98; }
   @media screen and (max-width: 768px) {
-    /* line 69, static/css/base.scss */
+    /* line 100, static/css/base.scss */
     .menu__nav {
       width: 90%;
-      left: -90%; } }
-  /* line 87, static/css/base.scss */
+      left: -90%;
+      font-size: 1.5rem; } }
+  /* line 119, static/css/base.scss */
   .menu__nav--open {
     left: 0; }
 
-/* line 91, static/css/base.scss */
+/* line 123, static/css/base.scss */
 .menu__list {
   list-style: none;
   position: absolute;
-  top: 60px;
+  top: 15%;
   left: 25px; }
-  /* line 97, static/css/base.scss */
+  /* line 129, static/css/base.scss */
   .menu__list__item {
     margin-left: 0;
-    margin-top: 15%;
-    font-size: 150%;
-    transition: all 0.3s ease-in-out; }
+    margin-top: 20%;
+    font-size: 200px;
+    transition: all 0.5s ease-in-out; }
 
-/* line 104, static/css/base.scss */
+/* line 136, static/css/base.scss */
 .menu__link {
   text-decoration: none;
   color: #ddd; }
-  /* line 107, static/css/base.scss */
+  /* line 139, static/css/base.scss */
   .menu__link:hover {
     text-decoration: inherit;
     color: #fff; }

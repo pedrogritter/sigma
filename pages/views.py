@@ -16,4 +16,4 @@ def landing(request):
     context = {}
     context["items_json"] = json.dumps(items)
 
-    return render(request,'pages/landing.html',context)
+    return render(request,'pages/landing_page.html',context)
