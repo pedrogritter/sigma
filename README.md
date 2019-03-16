@@ -194,8 +194,15 @@ python3 manage.py runserver
 **A development server should be running at http://127.0.0.1:8000/**
 
 
-**Remember that all development should be done in a dev branch before being merged with the master branch for production**
+**Remember that before editing or adding any code change to the development branch and create a new work branch**
 
+``` 
+git checkout development
+
+git branch new-dev-branch
+
+git checkout new-dev-branch
+```
 
 ## Built With
 
