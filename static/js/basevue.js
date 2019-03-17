@@ -1,6 +1,6 @@
 new Vue({
   delimiters: ['[[', ']]'],
-  el: "#app",
+  el: "#slider",
 
   data: {
     open: false,

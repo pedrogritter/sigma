@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def landing(request):
-    options = [("Home","http://sigma-alfa.herokuapp.com"), ("Aluno",""), ("Professor",""), ("About","")]
+    options = [("Home"," "), ("Aluno",""), ("Professor",""), ("About","")]
 
     items = []
 
