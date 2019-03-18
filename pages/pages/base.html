@@ -111,6 +111,14 @@
       </nav>
     </div>
     <div class="hero-body">
+      {% if messages %}
+        {% for message in messages %}
+        <div class="notification is-{{ message.tags }}">
+                  <button class="delete"></button>
+                  Success account created
+        </div>
+        {% endfor %}
+      {% endif %}
       <!-- Content  -->
       {% block content %}{% endblock %}
     </div>

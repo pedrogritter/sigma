@@ -3,7 +3,7 @@
 
 <div class="container has-text-centered">
   <div class="column is-6 is-offset-3">
-    <div class="content">
+    <div class="content box">
       <form method="POST">
         {% csrf_token %}
         <!-- bulma form classes -->
@@ -11,10 +11,12 @@
             <legend class="label">Sign up now</legend>
             {{ form }}
         </fieldset>
+        <br>
         <div>
           <button class="button is-primary" type="submit">Sign Up</button>
         </div>
       </form>
+      <br>
       <div class="box">
         <small> Already have An Account? <a href="#">Sign In</a></small>
       </div>
