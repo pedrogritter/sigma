@@ -62,7 +62,7 @@ ROOT_URLCONF = 'sigma.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['pages/'],
+        'DIRS': ['pages/', 'userauth/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
