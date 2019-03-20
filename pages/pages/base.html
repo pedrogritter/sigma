@@ -72,7 +72,7 @@
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
               <span class="navbar-item">
-                  <a class="button is-white is-outlined" href=" ">
+                  <a class="button is-white is-outlined" href="../">
                       <span class="icon">
                           <i class="fa fa-home"></i>
                       </span>
@@ -103,6 +103,29 @@
               <span>View Source</span>
               </a>
               </span>
+            </div>
+            <div class="navbar-item">
+              <div class="field is-grouped">
+
+
+
+                {% if user.is_authenticated %}
+                <p class="control">
+                  <a href="{% url 'authentication' slug='logout' %}" class="button is-primary is-outlined">
+                      Logout
+                  </a>
+                </p>
+                {% else %}
+                <p class="control">
+                  <a href="{% url 'authentication' slug='login' %}" class="button is-primary is-outlined">
+                      Login
+                  </a>
+                </p>
+
+                <p class="control">
+                  <a href="{% url 'authentication' slug='signup' %}" class="button is-success is-outlined">Signup</a>
+                </p>
+                {% endif %}
             </div>
           </div>
 
