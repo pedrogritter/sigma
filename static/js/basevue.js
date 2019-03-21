@@ -1,3 +1,18 @@
+var options = [
+  {"name":"Home",
+    "url":"{% url 'landing' %}",
+  },
+  {"name":"Aluno",
+  "url":"",
+},
+  {"name":"Professor",
+  "url":"",
+},
+  { "name":"About",
+    "url":"",
+  },
+]
+
 new Vue({
   delimiters: ['[[', ']]'],
   el: "#slider",

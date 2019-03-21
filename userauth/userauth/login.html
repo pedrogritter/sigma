@@ -1,0 +1,69 @@
+{% extends "pages/base.html" %} {% block content %}
+
+<div class="container has-text-centered">
+  <div class="column is-4 is-offset-4">
+    <h3 class="title has-text-white">Login</h3>
+    <p class="subtitle has-text-wgite">Please login to proceed.</p>
+    <div class="box">
+      <figure class="avatar">
+        <img src="https://camo.githubusercontent.com/7e19121ade1fd4655927666ac9fdb75855c9e225/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6469637469636f6e732d746578742d616c69676e6d656e742f33322f7369676d612d3132382e706e67">
+      </figure>
+      <form id="loginform" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <div class="control">
+            <input class="form-control input is-large" id="username" name="username" type="text" placeholder="Your Username" autofocus="">
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input class="form-control input is-large" id="password" name="password" type="password" placeholder="Your Password">
+          </div>
+        </div>
+        {% if form.non_field_errors %}
+        <ul class='form-errors'>
+          <li>We are sorry but the following error was encountered during login</li>
+          {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="field">
+          <label class="checkbox">
+                  <input type="checkbox">
+                  Remember me
+                </label>
+        </div>
+        <input type="submit" value="Login" class="button is-block is-info is-large is-fullwidth"/>
+        <!-- <input type="hidden" name="next" value="{{ next }}"/> -->
+        <!-- <button class="button is-block is-info is-large is-fullwidth" type="submit" value="Login"></button> -->
+      </form>
+    </div>
+    <p class="has-text-white">
+      <a href="{% url 'authentication' slug='signup' %}">Sign Up</a>
+      <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+      <a href="../">Need Help?</a>
+    </p>
+  </div>
+
+
+  <!-- <div class="column is-6 is-offset-3">
+    <div class="content box">
+      <form method="POST">
+        <!-- crf csrf_token -->
+  <!-- bulma form classes -->
+  <!-- <fieldset>
+            <legend class="label">Login</legend> -->
+  <!-- form -->
+  <!-- </fieldset>
+        <br>
+        <div>
+          <button class="button is-primary" type="submit">Login</button>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>  -->
+</div>
+
+{% endblock %}
