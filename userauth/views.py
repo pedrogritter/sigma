@@ -7,9 +7,12 @@ from django.views.generic import CreateView
 #from ..forms import StudentSignUpForm
 #from ..models import User
 
-#Jsut for testing
+#Just for testing
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+
+# import the logging library
+import logging
 
 
 def signup(request):
@@ -29,15 +32,15 @@ def signup(request):
 
 def user_login(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST['username']
+        password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+        # logger.error('Authenticated !')
         if user is not None:
             login(request, user)
             return redirect('landing')
-
     else:
-        return render(request, 'userauth/login.html', {})
+        return render(request, 'userauth/login.html')
 
 
 def user_logout(request):

@@ -34,10 +34,21 @@
 
   <!-- Slider Menu Section -->
   <script type="text/javascript">
-    // var options = {{items_json | safe}};
+    // var options = items_json | safe;
     var options = {
-      "Home":" ", "Aluno":"", "Professor":"", "About":"",
-    };
+      { "name":"Home",
+        "url":"{% url 'landing' %}",
+      }
+      { "name":"Aluno",
+        "url":"",
+      }
+      { "name":"Professor",
+        "url":"",
+      }
+      { "name":"About",
+        "url":"",
+      }
+    }
   </script>
   <div id="slider">
 
@@ -119,9 +130,6 @@
             </div>
             <div class="navbar-item">
               <div class="field is-grouped">
-
-
-
                 {% if user.is_authenticated %}
                 <p class="control">
                   <a href="{% url 'authentication' slug='logout' %}" class="button is-primary is-outlined">
@@ -134,7 +142,6 @@
                       Login
                   </a>
                 </p>
-
                 <p class="control">
                   <a href="{% url 'authentication' slug='signup' %}" class="button is-success is-outlined">Need an account?</a>
                 </p>

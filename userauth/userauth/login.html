@@ -8,21 +8,21 @@
       <figure class="avatar">
         <img src="https://camo.githubusercontent.com/7e19121ade1fd4655927666ac9fdb75855c9e225/68747470733a2f2f63646e312e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6469637469636f6e732d746578742d616c69676e6d656e742f33322f7369676d612d3132382e706e67">
       </figure>
-      <form id="loginform" method="POST">
+      <form id="loginform" method="post">
         {% csrf_token %}
         <div class="field">
           <div class="control">
-            <input class="input is-large" type="username" placeholder="Your Username" autofocus="">
+            <input class="form-control input is-large" id="username" name="username" type="text" placeholder="Your Username" autofocus="">
           </div>
         </div>
-
         <div class="field">
           <div class="control">
-            <input class="input is-large" type="password" placeholder="Your Password">
+            <input class="form-control input is-large" id="password" name="password" type="password" placeholder="Your Password">
           </div>
         </div>
         {% if form.non_field_errors %}
         <ul class='form-errors'>
+          <li>We are sorry but the following error was encountered during login</li>
           {% for error in form.non_field_errors %}
           <li>{{ error }}</li>
           {% endfor %}
@@ -34,7 +34,9 @@
                   Remember me
                 </label>
         </div>
-        <button class="button is-block is-info is-large is-fullwidth" type="submit">Login</button>
+        <input type="submit" value="Login" class="button is-block is-info is-large is-fullwidth"/>
+        <!-- <input type="hidden" name="next" value="{{ next }}"/> -->
+        <!-- <button class="button is-block is-info is-large is-fullwidth" type="submit" value="Login"></button> -->
       </form>
     </div>
     <p class="has-text-white">

@@ -7,7 +7,6 @@ import pages
 
 
 urlpatterns = [
-    path('', pages.views.landing, name="landing"),
     path('<slug:slug>/', views.authentication, name='authentication'),
     ]
 
