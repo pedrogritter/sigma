@@ -11,39 +11,57 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+
+def signup(request):
+    if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                raw_password = form.cleaned_data.get('password')
+                user = authenticate(username=username, password=raw_password)
+                login(request, user)
+                messages.success(request, f'Account created for {username}!')
+                return redirect('landing')
+    else:
+            form = UserCreationForm()
+            return render(request, 'userauth/signup.html', {'form': form})
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('landing')
+
+    else:
+        return render(request, 'userauth/login.html', {})
+
+
+def user_logout(request):
+        user = request.user
+        if user is not None:
+            username = request.user.username
+            messages.warning(request, f'{username} has been logged out!')
+            logout(request)
+            return redirect('landing')
+
+
 def authentication(request, slug):
 
         if slug == "signup":
-                if request.method == 'POST':
-                        form = UserCreationForm(request.POST)
-                        if form.is_valid():
-                            form.save()
-                            username = form.cleaned_data.get('username')
-                            raw_password = form.cleaned_data.get('password')
-                            user = authenticate(username=username, password=raw_password)
-                            login(request, user)
-                            messages.success(request, f'Account created for {username}!')
-                            return redirect('landing')
-                else:
-                        form = UserCreationForm()
-                        return render(request, 'userauth/signup.html', {'form': form})
+                return signup(request)
 
         elif slug == "login":
-
-            if request.method == 'POST':
-                username = request.POST['username']
-                password = request.POST.get(['password'])
-                user = authenticate(request, username=username, password=password)
-                if user is not None:
-                    login(request, user)
-                    return HttpResponseRedirect('landing')
-            else:
-                return render(request, 'userauth/login.html')
+                return user_login(request)
 
         elif slug == "logout":
-                logout(request)
-                messages.success(request, f'{username} has been logged out!')
-                return redirect('landing')
+                return user_logout(request)
+
+
+
 
 # def signup(request):
 #     # if request.method == "POST":

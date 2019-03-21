@@ -22,9 +22,22 @@
 </head>
 
 <body>
+  <script type="text/javascript">
+      function toggleStuff(id,class_toggle) {
+        var element = document.getElementById(id)
+
+        if (element.classList) {
+              element.classList.toggle(class_toggle);
+              }
+        }
+  </script>
+
   <!-- Slider Menu Section -->
   <script type="text/javascript">
-    var options = {{items_json | safe}};
+    // var options = {{items_json | safe}};
+    var options = {
+      "Home":" ", "Aluno":"", "Professor":"", "About":"",
+    };
   </script>
   <div id="slider">
 
@@ -72,7 +85,7 @@
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
               <span class="navbar-item">
-                  <a class="button is-white is-outlined" href="../">
+                  <a class="button is-white is-outlined" href="{% url 'landing' %}">
                       <span class="icon">
                           <i class="fa fa-home"></i>
                       </span>
@@ -123,7 +136,7 @@
                 </p>
 
                 <p class="control">
-                  <a href="{% url 'authentication' slug='signup' %}" class="button is-success is-outlined">Signup</a>
+                  <a href="{% url 'authentication' slug='signup' %}" class="button is-success is-outlined">Need an account?</a>
                 </p>
                 {% endif %}
             </div>
@@ -136,9 +149,9 @@
     <div class="hero-body">
       {% if messages %}
         {% for message in messages %}
-        <div class="notification is-{{ message.tags }}">
-                  <button class="delete"></button>
-                  Success account created
+        <div id = "message-box" class="notification is-{{ message.tags }}">
+                  <button class="delete" onclick="toggleStuff('message-box','is-hidden')"></button>
+                  {{ message }}
         </div>
         {% endfor %}
       {% endif %}
