@@ -34,26 +34,6 @@
 
   <!-- Slider Menu Section -->
   <div id="slider">
-
-    <!-- Simple TEMPLATE -->
-    <!-- <button @click="show = !show">
-                  Show menu
-    </button> -->
-
-    <!-- <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="show = !show">
-        <span class="menu__burger__span"></span>
-    </div>
-    <transition name="slide-fade">
-      <aside class="menu" v-if="show">
-        <ul class="menu-list">
-          <li v-for="option in options">
-            <a v-bind:href="option.url"> [[option.name]] </a>
-          </li>
-        </ul>
-      </aside>
-    </transition> -->
-
-    <!-- OLD TEMPLATE -->
     <div class="menu">
       <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
         <span class="menu__burger__span"></span>

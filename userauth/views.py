@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.contrib.auth import login, logout, authenticate
-from django.shortcuts import redirect
+from django.shortcuts import redirect, reverse
 from django.views.generic import CreateView
 
 #from ..forms import StudentSignUpForm
@@ -13,10 +13,11 @@ from django.contrib import messages
 
 # import the logging library
 import logging
+from pages import views
 
 
 def signup(request):
-    if request.method == 'POST':
+        if request.method == 'POST':
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 form.save()
@@ -24,23 +25,27 @@ def signup(request):
                 raw_password = form.cleaned_data.get('password')
                 user = authenticate(username=username, password=raw_password)
                 login(request, user)
-                messages.success(request, f'Account created for {username}!')
-                return redirect('landing')
-    else:
-            form = UserCreationForm()
-            return render(request, 'userauth/signup.html', {'form': form})
+                messages.success(request, f'Account created!')
+                return redirect(views.landing)
+            else:
+                messages.error(request, f'Error creating account!')
+                #return render(request, 'userauth/signup.html')
+
+        form = UserCreationForm()
+        return render(request, 'userauth/signup.html', {'form': form})
+            #return redirect(views.landing)
 
 def user_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        # logger.error('Authenticated !')
-        if user is not None:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            #logging.logger.info('User Logged-in !')
             login(request, user)
+            messages.success(request, f'Logged in: {user.username}')
             return redirect('landing')
-    else:
-        return render(request, 'userauth/login.html')
+        else:
+            return render(request, 'userauth/login.html')
 
 
 def user_logout(request):

@@ -17,6 +17,15 @@
         </div>
       </form>
       <br>
+      {{ form.errors }}
+      {% if form.non_field_errors %}
+      <ul class='form-errors'>
+        <li>We are sorry but the following error was encountered during login</li>
+        {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
       <div class="box">
         <small> Already have An Account? <a href="#">Sign In</a></small>
       </div>
