@@ -17,6 +17,7 @@
         </div>
       </form>
       <br>
+      <div class="content">
       {{ form.errors }}
       {% if form.non_field_errors %}
       <ul class='form-errors'>
@@ -26,6 +27,8 @@
         {% endfor %}
       </ul>
       {% endif %}
+    </div>
+
       <div class="box">
         <small> Already have An Account? <a href="#">Sign In</a></small>
       </div>
