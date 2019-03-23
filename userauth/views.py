@@ -23,8 +23,10 @@ def signup(request):
                 form.save()
                 username = form.cleaned_data.get('username')
                 raw_password = form.cleaned_data.get('password')
-                user = authenticate(username=username, password=raw_password)
-                login(request, user)
+                # user = authenticate(username=username, password=raw_password)
+                # login(request, user)
+                user = form.save()
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 messages.success(request, f'Account created!')
                 return redirect(views.landing)
             else:
