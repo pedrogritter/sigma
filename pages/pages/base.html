@@ -41,7 +41,7 @@
       <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
         <ul class="menu__list">
           <li v-for="option in options">
-            <a class="is-size-4 is-size-4-mobile has-text-white" v-bind:href="option.url"> [[option.name]] </a>
+            <a class="is-size-4 is-size-4-mobile has-text-white" v-bind:href=[[option.url]]> [[option.name]] </a>
           </li>
         </ul>
       </nav>
@@ -111,22 +111,22 @@
                 {% endif %}
             </div>
           </div>
-
-
         </div>
       </nav>
     </div>
     <div class="hero-body">
       {% if messages %}
         {% for message in messages %}
-        <div id = "message-box" class="notification is-{{ message.tags }}">
+        <div id = "message-box" class="notification is-{{ message.tags }} float is-pulled-left">
                   <button class="delete" onclick="toggleStuff('message-box','is-hidden')"></button>
                   {{ message }}
         </div>
         {% endfor %}
       {% endif %}
+    
       <!-- Content  -->
       {% block content %}{% endblock %}
+
     </div>
   </section>
   <!-- Footer Section -->

@@ -30,7 +30,7 @@ def signup(request):
                 messages.success(request, f'Account created!')
                 return redirect(views.landing)
             else:
-                messages.error(request, f'Error creating account!')
+                messages.danger(request, f'Error creating account!')
                 #return render(request, 'userauth/signup.html')
 
         form = UserCreationForm()
