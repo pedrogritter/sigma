@@ -4,6 +4,19 @@ from django.db import transaction
 
 from userauth.models import User, Student, Teacher
 
+class Student(object):
+    """docstring for Student."""
+
+    def __init__(self, arg):
+        super(Student, self).__init__()
+        self.arg = arg
+
+
+
+
+
+
+
 class StudentSignUpForm(UserCreationForm):
     interests = forms.ModelMultipleChoiceField(
         queryset=Subject.objects.all(),
