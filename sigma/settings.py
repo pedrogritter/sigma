@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'userauth',
 ]
 
-#AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
+AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
