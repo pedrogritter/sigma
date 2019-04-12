@@ -53,8 +53,9 @@ def user_login(request):
 def user_logout(request):
         user = request.user
         if user is not None:
-            username = request.user.username
-            messages.warning(request, f'{username} has been logged out!')
+            email = request.user.email #use email instead of username to signout
+            #username = request.user.username
+            messages.warning(request, f'{email} has been logged out!')
             logout(request)
             return redirect('landing')
 

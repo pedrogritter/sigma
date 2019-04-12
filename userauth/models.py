@@ -2,12 +2,15 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, password=None, is_active=True, is_student=False, is_teacher=False, is_staff=False, is_admin=False):
+    def create_user(self, email, full_name, password=None, is_active=True, is_student=False, is_teacher=False, is_staff=False, is_admin=False):
         if not email:
             raise ValueError("Users must have an email address")
 
         if not password:
             raiseValueError("Users must have a password")
+
+        if not full_name:
+            raiseValueError("Users must have a full name")
 
         user = self.model(
             email = self.normalize_email(email)
@@ -22,7 +25,7 @@ class CustomUserManager(BaseUserManager):
 
         return user
 
-    def create_studentuser(self,email,password=None):
+    def create_studentuser(self,email, full_name,password=None):
         user = self.create_user(
             email,
             password=password,
@@ -30,25 +33,28 @@ class CustomUserManager(BaseUserManager):
         )
         return user
 
-    def create_teacheruser(self,email,password=None):
+    def create_teacheruser(self,email, full_name,password=None):
         user = self.create_user(
             email,
+            full_name,
             password = password,
             is_teacher = True
         )
         return user
 
-    def create_staffuser(self,email,password=None):
+    def create_staffuser(self,email, full_name,password=None):
         user = self.create_user(
             email,
+            full_name,
             password=password,
             is_staff=True
         )
         return user
 
-    def create_superuser(self,email,password=None):
+    def create_superuser(self,email, full_name,password=None):
         user = self.create_user(
             email,
+            full_name,
             password=password,
             is_student=True,
             is_teacher=True,
@@ -60,7 +66,8 @@ class CustomUserManager(BaseUserManager):
 # Custom User Class definition
 
 class User(AbstractBaseUser):
-    email = models.EmailField(max_length=255, unique=True)
+    email = models.EmailField(verbose_name='email address', max_length=255, unique=True,)
+    full_name = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=True) #can login
     student = models.BooleanField(default=False)    #student user flag
     teacher = models.BooleanField(default=False)     #teacher user flag not superuser
@@ -71,13 +78,18 @@ class User(AbstractBaseUser):
     #confirmed_date = models.DateTimeField(default=False) #confirmed date
 
 
-    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email' # make email default instead of username
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['full_name']
+
+    objects = CustomUserManager()
+
 
     def __str__(self):
-        return
+        return self.email
+
+    def get_full_name(self):
+        return self.full_name
 
     def has_perm(self, perm, obj=None):
         return True
