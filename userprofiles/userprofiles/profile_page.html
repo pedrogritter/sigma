@@ -1,0 +1,13 @@
+{% extends "pages/base.html" %}
+{% block content %}
+  <div class="content">
+      <div class="image is-128x128">
+        <img class="is-rounded" src="{{ user.profile.image.url }}">
+      </div>
+      <br>
+      <div class="content">
+        <h2 class="title">{{ user.email }}</h2>
+        <p class="subtitle">{{ user.full_name }}</p>
+      </div>
+    </div>
+{% endblock %}
