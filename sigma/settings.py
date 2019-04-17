@@ -28,9 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_9k6j!c((d^fda8x6oy@os=42bzu1^zm$7c0=sq!*))y5-1+yp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = false
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sigma-alfa.herokuapp.com']
 
 
 # Application definition
