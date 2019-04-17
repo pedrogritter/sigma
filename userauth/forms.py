@@ -5,10 +5,16 @@ from django.contrib.auth.forms import UserCreationForm
 from userauth.models import User
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
+
 #user = get_user_model
 
 class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
 
     class Meta:
@@ -16,11 +22,17 @@ class RegisterForm(forms.ModelForm):
         fields =('email','full_name','student','teacher',)
 
     def clean_email(self):
+        good_domains = ['edu','fc','ul','pt','fcul','alunos']
+
         email = self.cleaned_data.get('email')
         qs = User.objects.filter(email=email)
+        email_domain = self.cleaned_data['email'].split('.')[-1] # Get email domain
         if qs.exists():
             raise forms.ValidationError("Email is taken, please choose another address")
-        return email
+        if email_domain not in good_domains:
+            logger.error('This domain is not accepted: %s '% email_domain)
+            raise forms.ValidationError("Registration using a non faculty email is not accepted. Please supply your academic account.", email_domain)
+        return self.cleaned_data["email"]
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -29,6 +41,17 @@ class RegisterForm(forms.ModelForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords don't match")
         return password2
+
+    def save(self, commit=True):
+        #Save the provided passsword in hashed format
+
+        user = super(RegisterForm, self).save(commit=False)
+        user.set_password(self.cleaned_data["password1"])
+
+        if commit:
+            user.save()
+
+        return user
 
 
 
