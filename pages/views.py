@@ -3,17 +3,8 @@ from django.shortcuts import render
 
 # Create your views here.
 def landing(request):
-    options = [("Home"," "), ("Aluno",""), ("Professor",""), ("About","")]
+    return render(request,'pages/landing_page.html')
 
-    items = []
-
-    for option in options:
-        items.append({
-            "name" : option[0],
-            "url" : option[1],
-        })
-
-    context = {}
-    context["items_json"] = json.dumps(items)
-
-    return render(request,'pages/landing_page.html',context)
+def about_page(request):
+    pass
+    # return render(request,'pages/about_page.html')

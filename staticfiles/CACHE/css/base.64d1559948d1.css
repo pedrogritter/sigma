@@ -1,0 +1,130 @@
+/* line 3, static/css/base.scss */
+html,
+body {
+  font-family: 'Open Sans', serif; }
+
+/* line 8, static/css/base.scss */
+.hero.is-info {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://unsplash.it/1200/900?random") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/* line 16, static/css/base.scss */
+.hero .nav,
+.hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+/* line 22, static/css/base.scss */
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5; }
+  /* line 25, static/css/base.scss */
+  .hero .subtitle .footer {
+    height: 5%; }
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+/* line 35, static/css/base.scss */
+.slide-fade-enter-active {
+  transition: all .3s ease; }
+
+/* line 38, static/css/base.scss */
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+
+/* line 41, static/css/base.scss */
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0; }
+
+/* line 56, static/css/base.scss */
+.menu__burger {
+  width: 50px;
+  height: 50px;
+  left: 20px;
+  top: 50px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 99; }
+  /* line 66, static/css/base.scss */
+  .menu__burger__span, .menu__burger__span:before, .menu__burger__span:after {
+    position: absolute;
+    height: 5px;
+    width: inherit;
+    background-color: #fff;
+    transition: all 0.2s; }
+    /* line 72, static/css/base.scss */
+    .menu__burger__span:before {
+      content: "";
+      top: -10px; }
+    /* line 77, static/css/base.scss */
+    .menu__burger__span:after {
+      content: "";
+      top: 10px; }
+  /* line 84, static/css/base.scss */
+  .menu__burger--open .menu__burger__span, .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
+    background-color: transparent; }
+    /* line 86, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:before, .menu__burger--open .menu__burger__span:after {
+      background-color: #fff;
+      transform-origin: 0 50%; }
+    /* line 92, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:before {
+      transform: translateX(7px) translateY(-5px) rotate(45deg); }
+    /* line 95, static/css/base.scss */
+    .menu__burger--open .menu__burger__span:after {
+      transform: translateX(7px) translateY(10px) rotate(-45deg); }
+
+/* line 101, static/css/base.scss */
+.menu__nav {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  height: 100%;
+  width: 15%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #333;
+  transition: all 0.3s;
+  z-index: 98; }
+  @media screen and (max-width: 1100px) {
+    /* line 101, static/css/base.scss */
+    .menu__nav {
+      width: 90%;
+      left: -90%;
+      font-size: 1.5rem; } }
+  @media screen and (max-width: 1200px) and (min-width: 768px) {
+    /* line 101, static/css/base.scss */
+    .menu__nav {
+      width: 100%;
+      left: -90%;
+      font-size: 1.5rem; } }
+  /* line 128, static/css/base.scss */
+  .menu__nav--open {
+    left: 0; }
+
+/* line 132, static/css/base.scss */
+.menu__list {
+  list-style: none;
+  position: absolute;
+  top: 15%;
+  left: 25px; }
+  /* line 138, static/css/base.scss */
+  .menu__list__item {
+    margin-left: 0;
+    margin-top: 20%;
+    font-size: 200px;
+    transition: all 0.5s ease-in-out; }
+
+/* line 145, static/css/base.scss */
+.menu__link {
+  text-decoration: none;
+  color: #ddd; }
+  /* line 148, static/css/base.scss */
+  .menu__link:hover {
+    text-decoration: inherit;
+    color: #fff; }

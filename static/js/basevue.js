@@ -1,6 +1,21 @@
+var options = [
+  {"name":"Home",
+    "url":"{% url 'landing' %}",
+  },
+  {"name":"Aluno",
+  "url":"{% url 'authentication' slug='login' %}",
+},
+  {"name":"Professor",
+  "url":"{% url 'authentication' slug='login' %}",
+},
+  { "name":"About",
+    "url":"",
+  },
+]
+
 new Vue({
   delimiters: ['[[', ']]'],
-  el: "#app",
+  el: "#slider",
 
   data: {
     open: false,

@@ -1,0 +1,39 @@
+{% extends "pages/base.html" %}
+{% block content %}
+
+<div class="container has-text-centered">
+  <div class="column is-6 is-offset-3">
+    <div class="content box">
+      <form method="POST">
+        {% csrf_token %}
+        <!-- bulma form classes -->
+        <fieldset>
+            <legend class="label">Sign up now</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <br>
+        <div>
+          <button class="button is-primary" type="submit">Sign Up</button>
+        </div>
+      </form>
+      <br>
+      <!-- <div class="content">
+      {{ form.errors }}
+      {% if form.non_field_errors %}
+      <ul class='form-errors'>
+        <li>We are sorry but the following error was encountered during login</li>
+        {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div> -->
+
+      <div class="box">
+        <small> Already have An Account? <a href="{% url 'authentication' slug='login' %}">Sign In</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
