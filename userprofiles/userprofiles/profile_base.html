@@ -1,0 +1,101 @@
+{% extends "pages/base.html" %}
+{% block content %}
+<div class="container">
+<div class="columns is-centered">
+  <div class="container profile">
+    <!-- Edit preferences modal -->
+    <div class="modal">
+        <div class="modal-card">
+           <header class="modal-card-head">
+             <p class="modal-card-title">Edit Details</p>
+             <button class="delete"></button>
+           </header>
+           <section class="modal-card-body">
+             <!-- Content ... -->
+             <label for="label">Name</label>
+             <p class="control has-icon has-icon-right">
+              <input type="text" class="input" placeholder="Change name">
+             </p>
+           </section>
+           <footer class="modal-card-foot">
+             <a class="button is-success">Save changes</a>
+             <a class="button">Cancel</a>
+           </footer>
+       </div>
+    </div>
+      <!-- Edit prefrences modal -->
+      <!-- Profile Heading  -->
+      <section class=" section profile-heading">
+          <div class="columns is-mobile is-multiline">
+              <div class="column is-2">
+                <span class="header-icon user-profile-image">
+                  <div class="image is-128x128">
+                    <img class="is-rounded" src="{{ user.profile.image.url }}">
+                  </div>
+                </span>
+                </div>
+
+                <div class="column is-4-table is-10-mobile name">
+                    <span class="title is-bold"> {{ user.profile.name }} {{user.profile.surname}} </span>
+                    <br>
+                    <!-- This button should eventually be transfered to profile details page -->
+                    <a href="" class="edit-preferences button is-primary is-outlined">Edit details</a>
+                    <br>
+                    <p class="tagline">
+                      The users brief description or bio should be represented here.
+                    </p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">1</p>
+                    <p class="stat-key">Years</p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">20</p>
+                    <p class="stat-key">Exams</p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">5</p>
+                    <p class="stat-key">Cadeiras</p>
+                </div>
+
+          </div>
+      </section>
+      <!-- END PROFILE HEADING -->
+      <div class="profile-options is-fullwidth">
+          <div class="tabs is-fullwidth is-medium">
+              <ul>
+                <li class="link is-active">
+                  <a href="">
+                      <span>Home</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="">
+                      <span>Details</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="">
+                      <span>Schedule</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="">
+                      <span>Exams</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="">
+                      <span>Results</span>
+                  </a>
+                </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+{% endblock %}

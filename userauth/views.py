@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import redirect, reverse
 from django.views.generic import CreateView
-
 from .forms import RegisterForm
 #from ..models import User
 
@@ -14,6 +13,7 @@ from django.contrib import messages
 # import the logging library
 import logging
 from pages import views
+from userprofiles import views
 
 
 def signup(request):
@@ -26,7 +26,7 @@ def signup(request):
                 user = form.save()
                 login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 messages.success(request, f'Account created! You are logged in as: {user.email}')
-                return redirect(views.landing)
+                return redirect(views.get_profile)
             else:
                 messages.error(request, f'Error creating account!')
                 return render(request, 'userauth/signup.html', {'form': form})
