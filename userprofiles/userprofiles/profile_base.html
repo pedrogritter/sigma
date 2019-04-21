@@ -64,14 +64,15 @@
       <div class="profile-options is-fullwidth">
           <div class="tabs is-fullwidth is-medium">
               <ul>
-                <li class="link is-active">
-                  <a href="">
+                <li class="link">
+                  <a href="{% url 'get_profile' %}">
                       <span>Home</span>
                   </a>
                 </li>
                 <li class="link">
-                  <a href="">
-                      <span>Details</span>
+
+                  <a href="{% url 'profile_details' %}">
+                      <span>Personal Details</span>
                   </a>
                 </li>
                 <li class="link">
@@ -94,8 +95,6 @@
       </div>
   </div>
 </div>
+{% block profile %}{% endblock %}
 </div>
-
-
-
 {% endblock %}

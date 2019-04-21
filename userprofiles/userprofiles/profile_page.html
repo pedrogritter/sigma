@@ -1,13 +1,300 @@
-{% extends "pages/base.html" %}
-{% block content %}
-  <div class="content">
-      <div class="image is-128x128">
-        <img class="is-rounded" src="{{ user.profile.image.url }}">
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+<div class="section">
+    <div class="columns is-mobile multiline">
+      <div class="column is-8 is-4-table is-10-mobile">
+          <span class="title is-bold">Week Details</span>
+          <br>
+          <br>
+          <!-- This is the weekly news table - Probably will be processed outside this page-->
+          <!-- THIS IS DUMMY DATA -->
+          <div id="weekly" class="box">
+               <p class="is-size-5 has-text-dark"><b>Inteligencia Artificial</b></p>
+              <ul>
+                <li><b>Teorica</b>: Resolução de Problemas. Introdução formulação segundo o Paradigma do Espaço de Estados.</li>
+                <li><b>Teorico-Pratica</b>: Paradigma do Espaço de Estados - Formulação de problemas</li>
+                <li><b>Laboratorio</b>: Agentes e Ambientes</li>
+              </ul>
+              <br>
+              <p class="is-size-5 has-text-dark"><b>Construção de Sistemas de Software</b></p>
+              <ul>
+                <li><b>T</b>: Persistência da camada de negócio de acordo com a camada de negócio. RowDataGateWay, TableDataGateway, Active Record e DataMapper. Uso da API JDBC.
+
+    </li>
+                <li><b>TP</b>:  Exercícios sobre os padrões Domain Model e Transaction Script. </li>
+                <li><b>L</b>: Consolidação da prática do uso da ferramenta git.</li>
+              </ul>
+
+          </div>
       </div>
-      <br>
-      <div class="content">
-        <h2 class="title">{{ user.email }}</h2>
-        <p class="subtitle">{{ user.full_name }}</p>
+
+      <div class="column is-half is-4-table is-10-mobile">
+          <span class="title is-bold">Classes</span>
+          <br>
+          <br>
+          <div class="field is-grouped is-grouped-multiline">
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-dark">SI</span>
+                  <span class="tag is-info">LTI</span>
+                </div>
+              </div>
+
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-dark">CSS</span>
+                  <span class="tag is-success">LTI</span>
+                </div>
+              </div>
+
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-dark">HIDRO</span>
+                  <span class="tag is-primary">M-Geo</span>
+                </div>
+              </div>
+          </div>
       </div>
     </div>
+</div>
+<!-- Find a good horizontal Divider -->
+<!-- Develop Search bar?? -->
+
+<!-- Classes Cards -->
+
+<div class="section">
+    <div class="box">
+        <div class="field has-addons">
+            <div class="control is-expanded">
+                <input class="input has-text-centered" type="search" placeholder="» » » » » » find me « « « « « «">
+            </div>
+            <div class="control">
+                <a class="button is-info">Search</a>
+            </div>
+        </div>
+    </div>
+    <!-- Developers -->
+    <div class="row columns">
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?dpr=1&auto=compress,format&fit=crop&w=1920&h=&q=80&cs=tinysrgb&crop=" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src="https://images.unsplash.com/19/nomad.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=988&q=80" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Vulcanology</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@josecandido</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. in Geology</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                      Volcanology (also spelled vulcanology) is the study of volcanoes, lava, magma, and related geological, geophysical and geochemical phenomena (volcanism). The term volcanology is derived from the Latin word vulcan. Vulcan was the ancient Roman god of fire.
+                        <div class="background-icon"><span class="icon-twitter"></span></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src="https://images.unsplash.com/photo-1549605659-32d82da3a059?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Artificial Inteligence</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@max3untij</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. Information Security</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        In computer science, artificial intelligence (AI), sometimes called machine intelligence, is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. Computer science defines AI research as the study of "intelligent agents".
+                        <div class="background-icon"><span class="icon-facebook"></span></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="https://source.unsplash.com/pe_R74hldW4" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src="https://i.imgsafe.org/a5/a5e978ce20.jpeg" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Artificial Inteligence</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@max3untij</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. Information Security</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!
+                        <div class="background-icon"><span class="icon-barcode"></span></div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- End Developers -->
+
+    <!-- Staff -->
+    <div class="row columns is-multiline">
+        <div class="column is-one-third">
+            <div class="card large round">
+                <div class="card-image ">
+                    <figure class="image">
+                        <img src="https://source.unsplash.com/Jy6luiLBsrk" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample5.jpg" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Artificial Inteligence</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@max3untij</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. Information Security</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="https://images.unsplash.com/photo-1553341640-9397992456f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src='http://www.radfaces.com/images/avatars/richard-wang.jpg' alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Artificial Inteligence</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@max3untij</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. Information Security</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="card-image">
+                    <figure class="image">
+                        <img src="https://source.unsplash.com/b6VzeoRZiS0" alt="Image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img src='http://www.radfaces.com/images/avatars/jeffrey-douglas.jpg' alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4 no-padding has-text-dark">Artificial Inteligence</p>
+                            <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@max3untij</a></span></p>
+                            <p class=" is-6 has-text-dark">Phd. Information Security</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Sometimes I dip my nose into my cereals. I do it coz it's funny.
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="" class="card-footer-item">Class Page</a>
+                    <a href="" class="card-footer-item">Forum</a>
+                    <a href="" class="card-footer-item">News</a>
+                </footer>
+            </div>
+        </div>
+      </div>
+
+      </div>
+
+<!-- Temporary CSS Styles - should be loaded from static eventually -->
+<style type="text/css">
+  #weekly {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .card {overflow:hidden}
+  .card.large {
+  height: 600px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: initial;
+  border-radius: 15px;
+  }
+  .media-content {
+  overflow: hidden;
+  }
+  .title.no-padding {
+  margin-bottom: 0 !important;
+  }
+</style>
+
 {% endblock %}

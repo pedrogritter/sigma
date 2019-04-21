@@ -5,4 +5,8 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def get_profile(request):
-    return render(request,'userprofiles/profile_base.html')
+    return render(request,'userprofiles/profile_page.html')
+#
+@login_required
+def profile_details(request):
+    return render(request,'userprofiles/profile_details.html')

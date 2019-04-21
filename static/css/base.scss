@@ -264,3 +264,26 @@ body {
     padding: 20px;
     // background-color: #F1F1F1;
   }
+
+
+  // Profile Pages css
+  // Home Pages
+
+  #weekly {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+.card {overflow:hidden}
+.card.large {
+height: 600px;
+-webkit-backface-visibility: hidden;
+backface-visibility: initial;
+border-radius: 5px;
+}
+.media-content {
+overflow: hidden;
+}
+.title.no-padding {
+margin-bottom: 0 !important;
+}
