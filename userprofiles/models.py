@@ -21,6 +21,7 @@ class Profile(models.Model):
     personal_id = models.ForeignKey('Identification', on_delete=models.CASCADE, blank=True, null=True)
     address = models.ForeignKey('Address', on_delete=models.CASCADE, blank=True,null=True)
     family = models.ForeignKey('Family', on_delete=models.CASCADE, blank=True, null=True)
+    # curso = models.
 
     #Other Details
     profession = models.CharField(max_length=50, blank=True, null=True)
