@@ -14,27 +14,27 @@
                     <div class="tile is-ancestor has-text-centered">
                         <div class="tile is-parent">
                             <article class="tile is-child box boxbutton">
-                                <p class="title has-text-dark">1º</p>
-                                <p class="subtitle has-text-dark">Semestre</p>
+                                <p class="title is-size-5 alinhar has-text-dark">1º</p>
+                                <p class="is-size-5 alinhar has-text-dark">Semestre</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box boxbutton">
-                                <p class="title has-text-dark">2º</p>
-                                <p class="subtitle has-text-dark">Semestre</p>
+                                <p class="title is-size-5 has-text-dark">2º</p>
+                                <p class="is-size-5 has-text-dark">Semestre</p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="tile is-child box boxbutton">
-                                <p class="title has-text-dark">Gerar Mapa de Exames</p>
-                                <p class="subtitle has-text-dark">(PDF)</p>
+                                <p class="title is-size-6 alinhar has-text-dark">Gerar Mapa de Exames</p>
+                                <p class="is-size-5 alinhar has-text-dark">(PDF)</p>
 
                             </article>
                         </div>
                         <div class="tile is-parent">
-                            <article class="tile is-child box boxbutton">
-                                <p class="title">19</p>
-                                <p class="subtitle">Exceptions</p>
+                            <article class="tile is-child box cadeiras">
+                                <p class="title is-size-5 has-text-dark">70</p>
+                                <p class="is-size-5 has-text-dark">Créditos inscritos</p>
                             </article>
                         </div>
                     </div>
@@ -206,11 +206,15 @@
     overflow-y: scroll;
   }
 
+  .alinhar{
+    margin:0;
+    padding:0;
+  }
   .boxbutton {
           transition: box-shadow .3s;
-          /* width: 300px;
-          height: 500px;
-          margin: 50px;
+          width: 200px;
+          height: 100px;
+          /*margin: 50px;
           border-radius:10px;
           border: 1px solid #ccc;
           background: #fff;
@@ -219,6 +223,11 @@
   .boxbutton:hover {
           box-shadow: 0 0 11px rgba(700,600,350,.2);
 }
+  .cadeiras {
+          width: 200px;
+          height: 100px;
+  }
+
   .boxbutton:hover > .overlay {
           position: absolute;
           top: 0;
