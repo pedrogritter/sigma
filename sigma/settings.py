@@ -104,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project_db',
         'USER': 'project_admin',
-        'PASSWORD': 'lti2019',
+        'PASSWORD': 'Bombthesistem33',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -169,7 +169,7 @@ STATICFILES_FINDERS = (
 #Django file storage location
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.
