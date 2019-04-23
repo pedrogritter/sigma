@@ -10,3 +10,9 @@ def get_profile(request):
 @login_required
 def profile_details(request):
     return render(request,'userprofiles/profile_details.html')
+
+#exams
+
+@login_required
+def profile_exams(request):
+    return render(request,'userprofiles/profile_exams.html')

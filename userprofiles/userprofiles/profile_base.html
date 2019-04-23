@@ -38,6 +38,7 @@
                 <div class="column is-4-table is-10-mobile name">
                     <span class="title is-bold"> {{ user.profile.name }} {{user.profile.surname}} </span>
                     <br>
+                    <br>
                     <!-- This button should eventually be transfered to profile details page -->
                     <a href="" class="edit-preferences button is-primary is-outlined">Edit details</a>
                     <br>
@@ -81,7 +82,7 @@
                   </a>
                 </li>
                 <li class="link">
-                  <a href="">
+                  <a href="{% url 'profile_exams' %}">
                       <span>Exams</span>
                   </a>
                 </li>
