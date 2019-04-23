@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', profile_views.get_profile, name='get_profile'),
-    path('details', profile_views.profile_details, name='profile_details')
+    path('details', profile_views.profile_details, name='profile_details'),
+    path('schedule', profile_views.profile_schedule, name='profile_schedule')
 ]
 
 # if settings.DEBUG:

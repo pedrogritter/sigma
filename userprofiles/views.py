@@ -10,3 +10,9 @@ def get_profile(request):
 @login_required
 def profile_details(request):
     return render(request,'userprofiles/profile_details.html')
+
+#Schedule
+
+@login_required
+def profile_schedule(request):
+    return render(request, 'userprofiles/profile_schedule.html')
