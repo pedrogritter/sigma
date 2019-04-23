@@ -34,7 +34,7 @@ class Aula(models.Model):
     horaFIM = models.TimeField()
     diaSemana = models.CharField(max_length=1, choices=DAY_CHOICES)
 
-class Presença(models.Model):
+class Presenca(models.Model):
     aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
     alunoID = models.ForeignKey(settings.Profile, on_delete=models.CASCADE, blank=True,null=True)
     date = models.DateField()
