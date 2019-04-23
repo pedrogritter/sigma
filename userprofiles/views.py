@@ -11,8 +11,16 @@ def get_profile(request):
 def profile_details(request):
     return render(request,'userprofiles/profile_details.html')
 
+<<<<<<< HEAD
 #Schedule
 
 @login_required
 def profile_schedule(request):
     return render(request, 'userprofiles/profile_schedule.html')
+=======
+#exams
+
+@login_required
+def profile_exams(request):
+    return render(request,'userprofiles/profile_exams.html')
+>>>>>>> pr-1/pedrogritter/diogo-prototipos

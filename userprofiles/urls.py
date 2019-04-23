@@ -7,7 +7,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', profile_views.get_profile, name='get_profile'),
     path('details', profile_views.profile_details, name='profile_details'),
+<<<<<<< HEAD
     path('schedule', profile_views.profile_schedule, name='profile_schedule')
+=======
+    path('exams' , profile_views.profile_exams, name ='profile_exams')
+>>>>>>> pr-1/pedrogritter/diogo-prototipos
 ]
 
 # if settings.DEBUG:
