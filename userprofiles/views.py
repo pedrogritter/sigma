@@ -18,8 +18,12 @@ def profile_details(request):
 def profile_schedule(request):
     return render(request, 'userprofiles/profile_schedule.html')
 
-#exams
-
+#Exams
 @login_required
 def profile_exams(request):
     return render(request,'userprofiles/profile_exams.html')
+
+# Results views
+@login_required
+def profile_results(request):
+    return render(request, 'userprofiles/profile_results.html')

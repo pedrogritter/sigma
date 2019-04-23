@@ -8,8 +8,8 @@ urlpatterns = [
     path('', profile_views.get_profile, name='get_profile'),
     path('details', profile_views.profile_details, name='profile_details'),
     path('schedule', profile_views.profile_schedule, name='profile_schedule'),
-    path('exams' , profile_views.profile_exams, name ='profile_exams')
-
+    path('exams' , profile_views.profile_exams, name ='profile_exams'),
+    path('results', profile_views.profile_results, name='profile_results'),
 ]
 
 # if settings.DEBUG:
