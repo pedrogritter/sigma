@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pages',
     'userauth',
     'userprofiles',
+    'ucmanage',
 ]
 
 AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
@@ -68,7 +69,7 @@ LOGOUT_REDIRECT_URL = 'landing'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['pages/', 'userauth/','userprofiles/'],
+        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -169,7 +170,7 @@ STATICFILES_FINDERS = (
 #Django file storage location
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.

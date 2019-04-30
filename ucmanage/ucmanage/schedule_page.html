@@ -18,7 +18,16 @@
 <section class="section schedulesection">
   <div class="container">
     <div class="content">
-        <p><b>ID</b>: {{alunoturnouc.objects.all}}</p>
+        <table>
+          <tr>
+              <th>UC</th>
+          </tr>
+          {% for item in uc_list %}
+            <tr>
+              <td>{{item.uc.name}} || {{item.aula.type}} || {{item.aula.horaINI}} - {{item.aula.horaFIM}}  {{item.aula.diaSemana}}</td>
+            </tr>
+          {% endfor %}
+        </table>
     </div>
   </div>
 </section>

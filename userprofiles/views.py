@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
-
+# from ucmanage import views as uc_views
 
 # Create your views here.
 @login_required
@@ -11,12 +11,12 @@ def get_profile(request):
 def profile_details(request):
     return render(request,'userprofiles/profile_details.html')
 
-
 #Schedule
 
 @login_required
 def profile_schedule(request):
-    return render(request, 'userprofiles/profile_schedule.html')
+    return redirect(views.profile_schedule)
+    # return render(request, 'userprofiles/profile_schedule.html')
 
 #exams
 
