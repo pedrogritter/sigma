@@ -18,16 +18,35 @@
 <section class="section schedulesection">
   <div class="container">
     <div class="content">
-        <table>
+      <table class="table">
+        <thead>
           <tr>
-              <th>UC</th>
+            <th>Hora</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+            <th>Sexta</th>
           </tr>
-          {% for item in uc_list %}
-            <tr>
-              <td>{{item.uc.name}} || {{item.aula.type}} || {{item.aula.horaINI}} - {{item.aula.horaFIM}}  {{item.aula.diaSemana}}</td>
-            </tr>
+        </thead>
+        <tbody>
+          {% for hora in slots %}
+          <tr>
+            <td>{{ hora }}</td>
+            {% for wday in days %}
+            <td>
+              {% for item in uc_list %}
+                {% if item.aula.diaSemana == wday and hora == item.aula.horaINI %}
+                  {{item.uc.abv}} || {{item.aula.type}}
+                {% endif %}
+              {% endfor %}
+            </td>
+            {% endfor %}
+          </tr>
           {% endfor %}
-        </table>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </section>
