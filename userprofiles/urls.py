@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.urls import include, path
 from userprofiles import views as profile_views
+from ucmanage import views as uc_views
+
 from django.conf.urls.static import static
 
 

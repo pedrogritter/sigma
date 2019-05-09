@@ -1,0 +1,54 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+<section class="section">
+<div class="columns is-mobile is-multiline">
+  <div class="column is-4">
+    <a class="button is-large is-fullwidth">1º Semestre</a>
+  </div>
+  <div class="column is-4">
+    <a class="button is-large is-fullwidth">2º Semeste</a>
+  </div>
+  <div class="column">
+    <div class="contain" id="schedulecontainer"></div>
+  </div>
+
+</div>
+
+</section>
+<section class="section schedulesection">
+  <div class="container">
+    <div class="content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+            <th>Sexta</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for hora in slots %}
+          <tr>
+            <td>{{ hora }}</td>
+            {% for wday in days %}
+            <td>
+              {% for item in uc_list %}
+                {% if item.aula.diaSemana == wday and hora == item.aula.horaINI %}
+                  {{item.uc.abv}} || {{item.aula.type}}
+                {% endif %}
+              {% endfor %}
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
