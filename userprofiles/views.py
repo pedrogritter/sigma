@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
-# from ucmanage import views as uc_views
+from ucmanage import views as uc_views
+
 
 # Create your views here.
 @login_required
