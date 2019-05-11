@@ -3,6 +3,9 @@ from django.db import models
 
 
 class Profile(models.Model):
+    """
+    This models extends the User model storing more information.
+    """
 
     #Connection to User model
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

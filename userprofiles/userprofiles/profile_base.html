@@ -3,27 +3,7 @@
 <div class="container">
 <div class="columns is-centered">
   <div class="container profile">
-    <!-- Edit preferences modal -->
-    <div class="modal">
-        <div class="modal-card">
-           <header class="modal-card-head">
-             <p class="modal-card-title">Edit Details</p>
-             <button class="delete"></button>
-           </header>
-           <section class="modal-card-body">
-             <!-- Content ... -->
-             <label for="label">Name</label>
-             <p class="control has-icon has-icon-right">
-              <input type="text" class="input" placeholder="Change name">
-             </p>
-           </section>
-           <footer class="modal-card-foot">
-             <a class="button is-success">Save changes</a>
-             <a class="button">Cancel</a>
-           </footer>
-       </div>
-    </div>
-      <!-- Edit prefrences modal -->
+
       <!-- Profile Heading  -->
       <section class=" section profile-heading">
           <div class="columns is-mobile is-multiline">
@@ -38,9 +18,6 @@
                 <div class="column is-4-table is-10-mobile name">
                     <span class="title is-bold"> {{ user.profile.name }} {{user.profile.surname}} </span>
                     <br>
-                    <br>
-                    <!-- This button should eventually be transfered to profile details page -->
-                    <a href="" class="edit-preferences button is-primary is-outlined">Edit details</a>
                     <br>
                     <p class="tagline">
                       The users brief description or bio should be represented here.

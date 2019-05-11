@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from ucmanage import views as uc_views
+from .forms import ProfileEditFrom
 
 
 # Create your views here.
@@ -10,7 +11,14 @@ def get_profile(request):
 #
 @login_required
 def profile_details(request):
-    return render(request,'userprofiles/profile_details.html')
+    if request.method=="POST":
+        form = ProfileEditFrom(request.POST)
+        if form.is_valid():
+            pass
+            # DO something
+    else:
+        form = ProfileEditFrom()
+    return render(request,'userprofiles/profile_details.html',{'form': form})
 
 #Schedule
 

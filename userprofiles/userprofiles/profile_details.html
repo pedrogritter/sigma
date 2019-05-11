@@ -1,6 +1,34 @@
 {% extends "userprofiles/profile_base.html" %}
 {% block profile %}
-
+<!-- Edit preferences modal -->
+<div id="detail_modal" class="modal">
+    <div class="modal-card">
+       <header class="modal-card-head">
+         <p class="modal-card-title">Edit Details</p>
+         <button class="delete" onclick="toggleStuff('detail_modal','is-active')"></button>
+       </header>
+       <section class="modal-card-body">
+         <!-- Content ... -->
+         <!-- <label for="label">Name</label>
+         <p class="control has-icon has-icon-right">
+          <input type="text" class="input" placeholder="Change name">
+         </p> -->
+          {{form}}
+         <!-- Content -->
+       </section>
+       <footer class="modal-card-foot">
+         <a class="button is-success">Save changes</a>
+         <a class="button" onclick="toggleStuff('detail_modal','is-active')">Cancel</a>
+       </footer>
+   </div>
+</div>
+  <!-- Edit prefrences modal -->
+<div class="container">
+  <!-- This button should eventually be transfered to profile details page -->
+  <a class="edit-preferences button is-primary is-outlined" onclick="toggleStuff('detail_modal','is-active')">Edit details</a>
+  <br>
+</div>
+<br>
 <div class="columns is-mobile is-multiline">
   <div class="column is-two-fifths">
       <div class="box">
