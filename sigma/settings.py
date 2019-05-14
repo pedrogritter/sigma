@@ -105,7 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project_db',
         'USER': 'project_admin',
-        'PASSWORD': 'lti2019',
+        'PASSWORD': 'Bombthesistem33',
         'HOST': 'localhost',
         'PORT': '',
     }
