@@ -1,0 +1,51 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+<script type="text/javascript">
+      function toggleStuff(id,class_toggle) {
+        var element = document.getElementById(id)
+
+        if (element.classList) {
+              element.classList.toggle(class_toggle);
+              }
+        }
+  </script>
+
+
+
+<section class="section">
+  <div class="container">
+      <h1 class="title">
+        Consulta aqui os teus horarios
+      </h1>
+      <h2 class="subtitle is-4">
+        Escolhe que semestre pretendes ver
+      </h2>
+    </div>
+<div class="columns is-mobile is-multiline">
+  <div class="column is-4">
+    <a class="button is-large is-fullwidth" onclick="toggleStuff('schedule1','is-hidden')">1º Semestre</a>
+  </div>
+  <div class="column is-4">
+    <a class="button is-large is-fullwidth" onclick="toggleStuff('schedule2','is-hidden');" >2º Semeste</a>
+  </div>
+  <div class="column">
+    <div class="contain" id="schedulecontainer"></div>
+  </div>
+
+</div>
+
+</section>
+<section class="section schedulesection">
+  <div class="container">
+    <div class="content">
+      <figure class="image is-hidden" id="schedule1">
+        <img src="https://i.ibb.co/dKQf8qc/horario.png">
+      </figure>
+      <figure class="image is-hidden" id="schedule2">
+        <img src="https://i.ibb.co/72hPQM6/horario2.png">
+      </figure>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
