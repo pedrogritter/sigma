@@ -18,8 +18,9 @@ class Curso(models.Model):
 class UnidadeCurricular(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)
-    cursoID = models.ForeignKey("Curso", on_delete=models.CASCADE, blank=True,null=True)
+    curso = models.ForeignKey("Curso", on_delete=models.CASCADE, blank=True,null=True)
     #regente
+    ECTS = models.IntegerField(blank=True,null=True)
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
@@ -39,8 +40,8 @@ class Aula(models.Model):
     diaSemana = models.CharField(max_length=3, choices=DAY_CHOICES)
 
 class Presenca(models.Model):
-    aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
-    alunoID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
+    aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     date = models.DateField()
 
 class AlunoAulaUC(models.Model):
@@ -49,5 +50,5 @@ class AlunoAulaUC(models.Model):
     aula = models.ForeignKey('Aula', on_delete=models.CASCADE, blank=True,null=True)
 
 class ProfessorAula(models.Model):
-    profID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
-    aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    prof = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
+    aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
