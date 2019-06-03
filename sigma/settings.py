@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'userauth',
     'userprofiles',
     'ucmanage',
+    'examemanage',
 ]
 
 AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
