@@ -43,7 +43,7 @@ def user_login(request):
             #logging.logger.info('User Logged-in !')
             login(request, user)
             messages.success(request, f'Logged in: {user.email}')
-            return redirect('landing')
+            return redirect('get_profile')
         else:
             return render(request, 'userauth/login.html')
 
