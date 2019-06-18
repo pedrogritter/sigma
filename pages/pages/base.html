@@ -33,17 +33,36 @@
   </script>
 
   <!-- Slider Menu Section -->
+  <script type='text/javascript'>
+    var options = {{ options_json|safe }};
+  </script>
   <div id="slider">
     <div class="menu">
       <div :class="['menu__burger', {'menu__burger--open': this.open}]" @click="toggleNav">
         <span class="menu__burger__span"></span>
       </div>
       <nav :class="['menu__nav', {'menu__nav--open': this.open}]">
-        <ul class="menu__list">
+        <!-- <ul class="menu__list">
           <li v-for="option in options">
             <a class="is-size-4 is-size-4-mobile has-text-white" v-bind:href=[[option.url]]> [[option.name]] </a>
           </li>
+        </ul> -->
+        <ul class="menu__list">
+          <li>
+            <a class="is-size-4 is-size-4-mobile has-text-white" href="{% url 'landing' %}">Home</a>
+          </li>
+          <li>
+            <a class="is-size-4 is-size-4-mobile has-text-white" href="{% url 'get_profile' %}"> Aluno</a>
+            <!-- <a class="is-size-4 is-size-4-mobile has-text-white" href="{% url 'authentication' slug='login' %}">Aluno</a> -->
+          </li>
+          <li>
+            <a class="is-size-4 is-size-4-mobile has-text-white" href="{% url 'authentication' slug='login' %}">Professor</a>
+          </li>
+          <li>
+            <a class="is-size-4 is-size-4-mobile has-text-white" href="">About</a>
+          </li>
         </ul>
+
       </nav>
     </div>
   </div>
@@ -59,7 +78,7 @@
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
               <span class="navbar-item">
-                  <a class="button is-white is-outlined" href="{% url 'landing' %}">
+                  <a class="button is-white is-outlined" href="{% url 'get_profile' %}">
                       <span class="icon">
                           <i class="fa fa-home"></i>
                       </span>
@@ -67,11 +86,11 @@
                   </a>
               </span>
               <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
+                          <a class="button is-white is-outlined" href="{% url 'get_profile' %}">
                                     <span class="icon">
                                         <i class="fa fa-superpowers"></i>
                                     </span>
-              <span>Examples</span>
+                                  <span>My profile</span>
               </a>
               </span>
               <span class="navbar-item">
@@ -123,7 +142,7 @@
         </div>
         {% endfor %}
       {% endif %}
-    
+
       <!-- Content  -->
       {% block content %}{% endblock %}
 

@@ -50,8 +50,15 @@ body {
 // body {
 //     background-color: lightcyan;
 // }
+#slider {
+  z-index: 500;
+  
+}
+
+
 .menu {
     $root: &;
+
 
     &__burger {
         $burger: #{$root}__burger;

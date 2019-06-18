@@ -39,11 +39,17 @@ def user_login(request):
         if request.method == 'POST':
             email = request.POST['email']
             password = request.POST['password']
+            #user = form.save()
             user = authenticate(request, email=email, password=password)
             #logging.logger.info('User Logged-in !')
-            login(request, user)
-            messages.success(request, f'Logged in: {user.email}')
-            return redirect('get_profile')
+            if user is not None:
+                login(request, user)
+                messages.success(request, f'Logged in: {user.email}')
+                return redirect('get_profile')
+            else:
+                messages.warning(request, f'Wrong Email or Password!')
+                return render(request, 'userauth/login.html')
+
         else:
             return render(request, 'userauth/login.html')
 
