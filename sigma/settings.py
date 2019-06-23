@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'userauth',
     'userprofiles',
     'ucmanage',
+    'django_q'
 ]
 
 AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
