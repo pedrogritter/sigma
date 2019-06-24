@@ -11,9 +11,9 @@ from examemanage.models import *
 @login_required
 def get_exams(request):
     user = request.user
-    if user.is_student():
+    if user.is_student:
         query_exams =  ExameAluno.objects.filter(alunoID = user.profile)
         examesAluno = Exame.objects.filter(id = query_exams.values('exameID'))
-        return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno})
+        return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno},)
     elif user.is_teacher():
-        return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno})
+        return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno},)

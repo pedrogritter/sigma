@@ -22,7 +22,7 @@ def profile_schedule(request):
 #Exams
 @login_required
 def profile_exams(request):
-    return render(request,'userprofiles/profile_exams.html')
+    return redirect(views.profile_exams)
 
 # Results views
 @login_required
