@@ -91,19 +91,19 @@ WSGI_APPLICATION = 'sigma.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# DATABASE_URL = os.environ['DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'project_db',
-#         'USER': 'project_admin',
-#         'PASSWORD': 'lti2019',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'project_db',
+        'USER': 'project_admin',
+        'PASSWORD': 'lti2019',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -169,5 +169,5 @@ MEDIA_URL = '/media/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-# ssl_require = os.environ['ENV'] != 'development'
-DATABASES['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=True)
+ssl_require = on
+# DATABASES['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=True)
