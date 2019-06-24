@@ -1,0 +1,224 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+<section class="section">
+<section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Aqui podes inscrever-te para os teus exames.
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box boxbutton">
+                                <p class="title is-size-5 alinhar has-text-dark">1º</p>
+                                <p class="is-size-5 alinhar has-text-dark">Semestre</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box boxbutton">
+                                <p class="title is-size-5 has-text-dark">2º</p>
+                                <p class="is-size-5 has-text-dark">Semestre</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Exames
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            {% for exame in examesAluno %}
+                                            <tr>
+                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                                <td>{{exame.ucID.name}} || {{exame.date}} || {{exame.horaINI}} || {{exame.Duracao}}</td>
+                                                <td><a class="button is-small is-primary" href="#">Inscrever</a></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View All</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                     Pesquisa por Ano
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-large" type="text" placeholder="">
+                                        <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                                        <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Pesquisa por Disciplina
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-large" type="text" placeholder="">
+                                        <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                                        <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+</section>
+<style type="text/css">
+  .card {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  margin-bottom: 2rem;
+  }
+  .card-header-title {
+    color: #8F99A3;
+    font-weight: 400;
+  }
+  .info-tiles {
+    margin: 1rem 0;
+  }
+  .info-tiles .subtitle {
+    font-weight: 300;
+    color: #8F99A3;
+  }
+  .hero.welcome.is-info {
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+  }
+  .hero.welcome .title, .hero.welcome .subtitle {
+    color: hsl(192, 17%, 99%);
+  }
+  .card .content {
+    font-size: 14px;
+  }
+  .card-footer-item {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8F99A3;
+  }
+  .card-footer-item:hover {
+  }
+  .card-table .table {
+    margin-bottom: 0;
+  }
+  .events-card .card-table {
+    max-height: 250px;
+    overflow-y: scroll;
+  }
+
+  .alinhar{
+    margin:0;
+    padding:0;
+  }
+  .boxbutton {
+          transition: box-shadow .3s;
+          width: 200px;
+          height: 100px;
+          /*margin: 50px;
+          border-radius:10px;
+          border: 1px solid #ccc;
+          background: #fff;
+          float: left; */
+  }
+  .boxbutton:hover {
+          box-shadow: 0 0 11px rgba(700,600,350,.2);
+}
+  .cadeiras {
+          width: 200px;
+          height: 100px;
+  }
+
+  .boxbutton:hover > .overlay {
+          position: absolute;
+          top: 0;
+          width:100%;
+          height:100%;
+          left: 0;
+          background-color:#000;
+          opacity:0.5;
+          z-index: 100;
+          display: block;
+      }
+
+
+  .boxbutton {
+          position:relative;
+          z-index: 1;
+}
+
+  .boxbutton:after {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          width: 100%;
+          height: 1px;
+          content: '.';
+          color: transparent;
+          background: #b8bab8;
+          visibility: none;
+          opacity: 0;
+          z-index: -1;
+}
+  .boxbutton:hover:after {
+          opacity: 1;
+          visibility: visible;
+          height: 100%;
+}
+</style>
+
+
+
+{% endblock %}
