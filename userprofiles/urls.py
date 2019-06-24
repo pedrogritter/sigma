@@ -2,6 +2,7 @@ from django.conf import settings
 from django.urls import include, path
 from userprofiles import views as profile_views
 from ucmanage import views as uc_views
+from examemanage import views as exame_views
 
 from django.conf.urls.static import static
 
@@ -10,7 +11,7 @@ urlpatterns = [
     path('', profile_views.get_profile, name='get_profile'),
     path('details', profile_views.profile_details, name='profile_details'),
     path('schedule', uc_views.get_schedule, name='profile_schedule'),
-    path('exams' , profile_views.profile_exams, name ='profile_exams'),
+    path('exams' , exame_views.get_exams, name ='profile_exams'),
     path('results', profile_views.profile_results, name='profile_results'),
 ]
 
