@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'userauth',
     'userprofiles',
     'ucmanage',
+    'presences',
+
 ]
 
 AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
@@ -69,7 +71,7 @@ LOGOUT_REDIRECT_URL = 'landing'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/'],
+        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/', 'presences/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -174,6 +176,6 @@ MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 #DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
