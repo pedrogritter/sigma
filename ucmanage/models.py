@@ -24,6 +24,7 @@ class UnidadeCurricular(models.Model):
     semestre = models.IntegerField()
 
 
+
 class Turno(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)

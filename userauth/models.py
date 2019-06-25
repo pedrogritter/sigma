@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, full_name, password=None, is_active=True, is_student=False, is_teacher=False, is_staff=False, is_admin=False):
+    def create_user(self, email, full_name, curso, password=None, is_active=True, is_student=False, is_teacher=False, is_staff=False, is_admin=False):
         if not email:
             raise ValueError("Users must have an email address")
 
@@ -21,15 +21,19 @@ class CustomUserManager(BaseUserManager):
         user.teacher = is_teacher
         user.staff = is_staff
         user.admin = is_admin
+        user.curso = curso
         user.save(using = self.db)
 
         return user
 
-    def create_studentuser(self,email, full_name,password=None):
+    def create_studentuser(self,email, full_name, curso, as_ucs=False, password=None):
         user = self.create_user(
             email,
             password=password,
-            is_student=True
+            is_student=True,
+            curso = curso,
+            as_ucs=False
+
         )
         return user
 
@@ -72,6 +76,8 @@ class User(AbstractBaseUser):
     student = models.BooleanField(default=False)    #student user flag
     teacher = models.BooleanField(default=False)     #teacher user flag not superuser
     staff = models.BooleanField(default=False)      #staff user flag not superuser
+    curso = models.CharField(max_length=255, blank=True, null=True)
+    # curso = models.ForeignKey('Curso',blank=True,on_delete=models.CASCADE,null=True)
     admin = models.BooleanField(default=False)      #superuser
     timestamp = models.DateTimeField(auto_now_add=True) # auto add creation timestamp
     #confirmed = models.BooleanField(default=False) #confirmed Email
@@ -109,3 +115,10 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.staff
+
+    @property
+    def get_curso(self):
+        if is_student():
+            return self.curso
+        else:
+            pass

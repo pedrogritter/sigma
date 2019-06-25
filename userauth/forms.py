@@ -1,4 +1,5 @@
 from django import forms
+from ucmanage.models import Curso
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 # from django.db import transaction
@@ -11,15 +12,17 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+
 #user = get_user_model
 
 class RegisterForm(forms.ModelForm):
     password1 = forms.CharField(label='Password',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+    curso = forms.ChoiceField(choices=[(curso.id, curso.name) for curso in Curso.objects.all()])
 
     class Meta:
         model = User
-        fields =('email','full_name','student','teacher',)
+        fields =('email','full_name','student','teacher','curso')
 
     def clean_email(self):
         good_domains = ['edu','fc','ul','pt','fcul','alunos']

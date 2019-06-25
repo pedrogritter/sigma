@@ -1,5 +1,7 @@
+from django.contrib.postgres.fields import ArrayField
 from django.conf import settings
 from django.db import models
+
 
 
 class Profile(models.Model):
@@ -24,13 +26,14 @@ class Profile(models.Model):
     personal_id = models.ForeignKey('Identification', on_delete=models.CASCADE, blank=True, null=True)
     address = models.ForeignKey('Address', on_delete=models.CASCADE, blank=True,null=True)
     family = models.ForeignKey('Family', on_delete=models.CASCADE, blank=True, null=True)
-    # curso = models.ForeignKey
-    # departamento = models.ForeignKey
+    chairs = models.ForeignKey('Chairs', on_delete=models.CASCADE, blank=True, null=True)
+
 
     #Other Details
     profession = models.CharField(max_length=50, blank=True, null=True)
     personal_email = models.EmailField(verbose_name='personal email address', max_length=255, unique=True, blank=True, null=True)
     personal_website = models.CharField(max_length=30, blank=True, null=True)
+    is_signed = models.BooleanField(default=False)
 
     #REQUIRED_FIELDS = ['name','surname','birthdate','country']
 
@@ -77,3 +80,7 @@ class Family(models.Model):
     #user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     mothers_name =  models.CharField(max_length=150)
     fathers_name =  models.CharField(max_length=150)
+
+class Chairs(models.Model):
+
+    signed_chairs = ArrayField(models.IntegerField())

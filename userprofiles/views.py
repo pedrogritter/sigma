@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from ucmanage import views as uc_views
-from .forms import ProfileEditFrom
+from .forms import ProfileEditFrom, SignChairsForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -62,6 +62,21 @@ def change_password(request):
         password_form = PasswordChangeForm(request.user)
     return render(request, 'userprofiles/password_change.html', {'password_form': password_form})
 
+# Signed Form
+def sign_chairs(request):
+    if request.method == 'POST':
+        sign_form = SignChairsForm(request.POST)
+        if sign_form.is_valid():
+            print(sign_form.cleaned_data['cadeiras'])
+            print(request.user.profile.get_name)
+            is_signed = True
+
+        else:
+            messages.error(request, 'Number of Chairs wrong!')
+    else:
+        sign_form = SignChairsForm()
+
+    return render(request, 'userprofiles/profile_sign.html', {'sign_form': sign_form})
 
 
 #Schedule

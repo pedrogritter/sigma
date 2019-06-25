@@ -76,6 +76,8 @@
         </div>
     </div>
     <!-- Developers -->
+
+    {% if is_signed %}
     <div class="row columns">
         <div class="column is-one-third">
             <div class="card large">
@@ -92,7 +94,7 @@
                             </figure>
                         </div>
                         <div class="media-content">
-                            <p class="title is-4 no-padding has-text-dark">Vulcanology</p>
+                            <p class="title is-4 no-padding has-text-dark">{{user.profile.chairs[0]}}</p>
                             <p><span class="title is-6 link has-text-dark"><a href="http://twitter.com/#">@josecandido</a></span></p>
                             <p class=" is-6 has-text-dark">Phd. in Geology</p>
                         </div>
@@ -175,6 +177,7 @@
             </div>
         </div>
     </div>
+
     <!-- End Developers -->
 
     <!-- Staff -->
@@ -274,7 +277,11 @@
             </div>
         </div>
       </div>
+      {% else %}
 
+        <a class="button is-small is-primary" href="{% url 'sign_chairs' %}">Inscrever</a>
+
+      {% endif %}
       </div>
 
 <!-- Temporary CSS Styles - should be loaded from static eventually -->

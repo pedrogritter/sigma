@@ -1,4 +1,6 @@
 from django import forms
+from ucmanage.models import UnidadeCurricular
+from userauth.models import User
 
 
 class ProfileEditFrom(forms.Form):
@@ -45,6 +47,7 @@ class ProfileEditFrom(forms.Form):
     )
 
 
+
 def clean(self):
         cleaned_data = super(ProfileEditForm, self).clean()
         name = cleaned_data.get('name')
@@ -56,3 +59,14 @@ def clean(self):
 
         if not name and not email and not surname and not profession and not personal_email and not personal_website:
             raise forms.ValidationError('You have to change something!')
+
+
+class SignChairsForm(forms.Form):
+
+
+    cadeiras = forms.MultipleChoiceField(choices=[(chairs.id, chairs.name) for chairs in UnidadeCurricular.objects.filter(cursoID = '13')], widget=forms.CheckboxSelectMultiple())
+
+    def clean_cadeiras(self):
+        if len(self.cleaned_data['cadeiras']) > 5:
+            raise forms.ValidationError('Select no more than 5.')
+        return self.cleaned_data['cadeiras']
