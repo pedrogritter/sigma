@@ -1,0 +1,20 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+
+</section>
+<section class="section presencessection">
+  <div class="container" >
+    <div class="content">
+      <h2>Registar Presença</h2>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

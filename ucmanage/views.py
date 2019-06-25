@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import time, timedelta
+from .forms import PedidoTrocaForm
 
 #from userprofiles.models import Profile
 #Model imports
@@ -22,7 +23,6 @@ def get_schedule(request):
     elif user.teacher:
         query_user =  ProfessorAula.objects.filter(teacher = user.profile)
 
+    form = PedidoTrocaForm(user)
 
-
-
-    return render(request, 'ucmanage/schedule_page.html',{'uc_list': query_user, 'slots': slots,'days':days,})
+    return render(request, 'ucmanage/schedule_page.html',{'uc_list': query_user, 'slots': slots,'days':days, 'form': form})
