@@ -18,10 +18,10 @@ class Migration(migrations.Migration):
             name='Exame',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('ucID', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='ucmanage.UnidadeCurricular')),
                 ('horaINI', models.TimeField()),
                 ('Duracao', models.TimeField()),
                 ('date', models.DateField()),
-                ('ucID', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='ucmanage.UnidadeCurricular')),
             ],
         ),
         migrations.CreateModel(

@@ -5,13 +5,10 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Aqui podes inscrever-te para os teus exames.
+                                Emissão de Exames
                             </h1>
                         </div>
                     </div>
-                </section>
-                <section class="info-tiles">
-
                 </section>
                 <div class="columns">
                     <div class="column is-6">
@@ -30,20 +27,10 @@
                                 <div class="content">
                                     <table class="table is-fullwidth is-striped">
                                         <tbody>
-                                            {% for item in exam_list %}
-                                            <tr>
-                                                <th></th>
-                                                <th>Disciplina</th>
-                                                <th>Data</th>
-                                                <th>Início</th>
-                                                <th>Fim</th>
-                                            </tr>
+                                            {% for exame in examesAluno %}
                                             <tr>
                                                 <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>{{item.ucID.name}}</td>
-                                                <td>{{item.date}}</td>
-                                                <td>{{item.horaINI}}</td>
-                                                <td>{{item.horaFim}}</td>
+                                                <td>{{exame.ucID.name}} || {{exame.date}} || {{exame.horaINI}} || {{exame.Duracao}}</td>
                                                 <td><a class="button is-small is-primary" href="#">Inscrever</a></td>
                                             </tr>
                                             {% endfor %}
@@ -54,6 +41,58 @@
                             <footer class="card-footer">
                                 <a href="#" class="card-footer-item">View All</a>
                             </footer>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                     Pesquisa por Ano
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-large" type="text" placeholder="">
+                                        <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                                        <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Pesquisa por Disciplina
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-large" type="text" placeholder="">
+                                        <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                                        <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 </div>
