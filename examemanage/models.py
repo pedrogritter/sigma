@@ -12,6 +12,6 @@ class Exame(models.Model):
 
 
 class ExameAluno(models.Model):
-    exameID = models.ForeignKey("Exame", on_delete=models.CASCADE, blank=True,null=True)
+    exameID = models.ForeignKey("examemanage.Exame", on_delete=models.CASCADE, blank=True,null=True)
     alunoID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     inscrito = models.BooleanField(default=False)

@@ -44,8 +44,13 @@
                                                 <td>{{item.date}}</td>
                                                 <td>{{item.horaINI}}</td>
                                                 <td>{{item.horaFim}}</td>
-                                                <td><a class="button is-small is-primary" href="#">Inscrever</a></td>
-                                            </tr>
+                                                {% if item in inscricoes %}
+                                                  <td>Inscrito</td>
+                                                {% else %}
+                                                  <td><a class="button is-small is-primary" href="{% url 'inscrever' item.id %}">Inscrever</a></td>
+                                                {% endif %}
+
+                                              </tr>
                                             {% endfor %}
                                         </tbody>
                                     </table>
