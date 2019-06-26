@@ -26,13 +26,13 @@ class Profile(models.Model):
     personal_id = models.ForeignKey('Identification', on_delete=models.CASCADE, blank=True, null=True)
     address = models.ForeignKey('Address', on_delete=models.CASCADE, blank=True,null=True)
     family = models.ForeignKey('Family', on_delete=models.CASCADE, blank=True, null=True)
-    chairs = models.ForeignKey('Chairs', on_delete=models.CASCADE, blank=True, null=True)
 
 
     #Other Details
     profession = models.CharField(max_length=50, blank=True, null=True)
     personal_email = models.EmailField(verbose_name='personal email address', max_length=255, unique=True, blank=True, null=True)
     personal_website = models.CharField(max_length=30, blank=True, null=True)
+    chairs = ArrayField(models.CharField(max_length=4), blank=True)
     is_signed = models.BooleanField(default=False)
 
     #REQUIRED_FIELDS = ['name','surname','birthdate','country']
@@ -60,6 +60,8 @@ class Profile(models.Model):
     def get_email(self):
         return self.personal_email
 
+
+
 class Address(models.Model):
     #user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=150)
@@ -80,7 +82,3 @@ class Family(models.Model):
     #user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     mothers_name =  models.CharField(max_length=150)
     fathers_name =  models.CharField(max_length=150)
-
-class Chairs(models.Model):
-
-    signed_chairs = ArrayField(models.IntegerField())

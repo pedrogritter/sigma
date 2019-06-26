@@ -65,18 +65,20 @@ def change_password(request):
 # Signed Form
 def sign_chairs(request):
     if request.method == 'POST':
-        sign_form = SignChairsForm(request.POST)
-        if sign_form.is_valid():
-            print(sign_form.cleaned_data['cadeiras'])
-            print(request.user.profile.get_name)
-            is_signed = True
+        form = SignChairsForm(request.POST)
+        if form.is_valid():
+            cadeiras = form.cleaned_data['cadeiras']
+            request.user.profile.chairs = cadeiras
+            request.user.profile.is_signed = True
+            request.user.profile.save()
+            print(request.user.profile.chairs)
 
         else:
             messages.error(request, 'Number of Chairs wrong!')
     else:
-        sign_form = SignChairsForm()
+        form = SignChairsForm()
 
-    return render(request, 'userprofiles/profile_sign.html', {'sign_form': sign_form})
+    return render(request, 'userprofiles/profile_sign.html', {'form': form})
 
 
 #Schedule

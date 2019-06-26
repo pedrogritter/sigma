@@ -23,6 +23,9 @@ class UnidadeCurricular(models.Model):
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
+    def get_name(self):
+        return self.name
+
 
 
 class Turno(models.Model):
