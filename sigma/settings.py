@@ -31,7 +31,7 @@ SECRET_KEY = '_9k6j!c((d^fda8x6oy@os=42bzu1^zm$7c0=sq!*))y5-1+yp'
 DEBUG = False
 
 #ALLOWED_HOSTS = ['.sigma-alfa.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.sigma-alfa.herokuapp.com']
 
 # Application definition
 
