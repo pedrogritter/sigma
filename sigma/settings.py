@@ -156,7 +156,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
 
 COMPRESS_PRECOMPILERS = (
@@ -177,6 +177,6 @@ MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 #DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
