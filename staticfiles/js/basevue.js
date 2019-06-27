@@ -9,7 +9,7 @@ var options = [
   "url":"{% url 'authentication' slug='login' %}",
 },
   { "name":"About",
-    "url":"",
+    "url":"{% url 'about' %}",
   },
 ]
 
