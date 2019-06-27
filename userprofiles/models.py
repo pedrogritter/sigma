@@ -23,7 +23,7 @@ class Profile(models.Model):
     #Basic Details
     name = models.CharField(max_length=50, blank=True, null=True)
     surname = models.CharField(max_length=100, blank=True, null=True)
-    birthdate = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
+    # birthdate = models.DateField(auto_now_add=False, auto_now=False, blank=True, null=True)
 
     #Details from ForeignKey
     personal_id = models.ForeignKey('Identification', on_delete=models.CASCADE, blank=True, null=True)
