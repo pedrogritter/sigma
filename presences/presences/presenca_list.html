@@ -1,0 +1,22 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Aula</th>
+        <th>Dia</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for presence in presences %}
+        <tr>
+          <td>{{ presence.aluno }}</a></td>
+          <td>{{ presence.aula }}</td>
+          <td>{{ presence.date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
