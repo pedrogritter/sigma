@@ -83,15 +83,15 @@ class Family(models.Model):
 
 
 @receiver(post_save, sender=Profile)
-def create_or_update_user_profile(sender, instance, created, **kwargs):
+def create_or_update_user_profile(sender, instance, **kwargs):
     if not instance:
         return
 
     if hasattr(instance, '_dirty'):
         return
-
-    if created:
-        Profile.objects.create(user=instance)
+    # 
+    # if created:
+    #     Profile.objects.create(user=instance)
 
     else:
         try:
