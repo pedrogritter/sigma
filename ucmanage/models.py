@@ -62,12 +62,12 @@ class AlunoAulaUC(models.Model):
     aula = models.ForeignKey('Aula', on_delete=models.CASCADE, blank=True,null=True)
 
 class ProfessorAula(models.Model):
-    profID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
-    aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    prof = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
+    aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
 
 class PedidoTroca(models.Model):
     aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
-    
+
     STATUS = (('Pendente','Pendente'),('Aceite','Aceite'),('Recusado','Recusado'))
     status = models.CharField(max_length=10, choices=STATUS, default = 'Pendente')

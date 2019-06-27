@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import time, timedelta
 from .forms import PedidoTrocaForm
-
+from django.db.models import Q
 #from userprofiles.models import Profile
 #Model imports
 
@@ -26,3 +26,25 @@ def get_schedule(request):
     form = PedidoTrocaForm(user)
 
     return render(request, 'ucmanage/schedule_page.html',{'uc_list': query_user, 'slots': slots,'days':days, 'form': form})
+
+
+
+def get_alunos_in_prof_uc(request):
+    user = request.user
+
+    if user.teacher:
+        prof_aulas = ProfessorAula.objects.filter(prof = user.profile)
+
+        alunos_inscritos = []
+        prof_ucs = []
+        for item in prof_aulas:
+            prof_ucs.append(item.aula.turnoID.ucID)
+            alunos_inscritos.append(AlunoAulaUC.objects.filter(aula = item.aula))
+
+        for uc in prof_ucs:
+            AlunoAulaUC.objects.filter(Q(uc = uc) | Q(aula__isnull=True))
+
+
+
+
+    return render(request, 'ucmanage/list_alunos_uc.html',)
