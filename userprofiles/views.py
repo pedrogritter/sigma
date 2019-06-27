@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from ucmanage import views as uc_views
-from .forms import ProfileEditFrom
+# from .forms import ProfileEditFrom
+from userprofiles.models import Profile
+from .forms import UpdateProfileForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -33,23 +35,21 @@ def get_profile(request):
 
 
 
-# Edit profile forms
+# profile forms
 @login_required(login_url='../auth/login/', redirect_field_name=None)
 def profile_details(request):
-    if request.method=="POST":
-        form = ProfileEditFrom(request.POST)
-        if request.method=="POST":
-            form = ProfileEditFrom(request.POST)
-            if form.is_valid():
-                details = form.clean()
-                # DO something
-                edit = details.save()
-                messages.success(request, 'Your details where successfully updated!')
-        else:
-            messages.error(request, 'Please correct the error below.')
-    else:
-        form = ProfileEditFrom()
-    return render(request,'userprofiles/profile_details.html',{'form': form})
+    # if request.method=="POST":
+    #         form = ProfileEditFrom(request.user, request.POST)
+    #         if form.is_valid():
+    #             # DO something
+    #             new_details = form.save()
+    #             messages.success(request, 'Your details where successfully updated!')
+    #         else:
+    #             messages.error(request, 'Please correct the error below.')
+    # else:
+    #     form = ProfileEditFrom()
+    # ,{'form': form} > > Add to render
+    return render(request,'userprofiles/profile_details.html')
 
 # Password change
 @login_required(login_url='../auth/login/', redirect_field_name=None)
@@ -65,9 +65,30 @@ def change_password(request):
             messages.error(request, 'Please correct the error below.')
     else:
         password_form = PasswordChangeForm(request.user)
-    return render(request, 'userprofiles/password_change.html', {'password_form': password_form})
+        return render(request, 'userprofiles/password_change.html', {'password_form': password_form})
 
+# Edit Details
+@login_required(login_url='../auth/login/', redirect_field_name=None)
+def edit_details(request):
+    user = request.user
+    profile= user.profile
 
+    if request.method == "POST":
+        form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            update = form.save(commit=False)
+            #update.profile = profile
+            # DO something
+            #update.user = user
+            update.save()
+            print(update)
+            messages.success(request, 'Your details where successfully updated!')
+            return redirect('profile_details')
+        else:
+            messages.error(request, 'An error occured while editing details!')
+    else:
+        form = UpdateProfileForm(instance=profile)
+    return render(request,'userprofiles/edit_details.html',{'form': form})
 
 #Schedule
 @login_required(login_url='../auth/login/', redirect_field_name=None)

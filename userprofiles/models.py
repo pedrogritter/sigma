@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from functools import wraps
 
 
 class Profile(models.Model):
@@ -77,3 +80,23 @@ class Family(models.Model):
     #user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     mothers_name =  models.CharField(max_length=150)
     fathers_name =  models.CharField(max_length=150)
+
+
+@receiver(post_save, sender=Profile)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    if not instance:
+        return
+
+    if hasattr(instance, '_dirty'):
+        return
+
+    if created:
+        Profile.objects.create(user=instance)
+
+    else:
+        try:
+            instance._dirty = True
+            instance.save()
+
+        finally:
+            del instance._dirty

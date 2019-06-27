@@ -8,11 +8,15 @@
          <button class="delete" onclick="toggleStuff('detail_modal','is-active')"></button>
        </header>
        <section class="modal-card-body has-text-dark">
-          {{form}}
          <!-- Content -->
+         <form method="post">
+          {{form}}
+          <br>
+          <a class="button is-success" type="submit">Save changes</a>
+          </form>
        </section>
        <footer class="modal-card-foot">
-         <a class="button is-success">Save changes</a>
+         <a class="button is-success" type="submit" value="submit" href="{% url 'profile_details' %}">Save changes</a>
          <a class="button" onclick="toggleStuff('detail_modal','is-active')">Cancel</a>
        </footer>
    </div>
@@ -20,8 +24,10 @@
   <!-- Edit prefrences modal -->
 <div class="container">
   <!-- This button should eventually be transfered to profile details page -->
-  <a class="edit-preferences button is-primary is-outlined" onclick="toggleStuff('detail_modal','is-active')">Edit details</a>
+  <!-- <a class="edit-preferences button is-primary is-outlined" onclick="toggleStuff('detail_modal','is-active')">Edit details</a> -->
   <a class="edit-preferences button is-danger is-outlined" href="{% url 'change_password' %}">Change Password</a>
+  <a class="edit-preferences button is-primary is-outlined" href="{% url 'edit_details' %}">Edit details</a>
+
   <br>
 </div>
 <br>
