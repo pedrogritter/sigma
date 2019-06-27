@@ -52,3 +52,4 @@ class AlunoAulaUC(models.Model):
 class ProfessorAula(models.Model):
     profID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    uc_id = models.ForeignKey('UnidadeCurricular', on_delete=models.CASCADE, blank=True,null=True)

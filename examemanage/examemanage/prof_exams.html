@@ -5,17 +5,20 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Emissão de Exames
+                                Alunos inscritos em Exame
                             </h1>
                         </div>
                     </div>
+                </section>
+                <section class="info-tiles">
+
                 </section>
                 <div class="columns">
                     <div class="column is-6">
                         <div class="card events-card">
                             <header class="card-header">
                                 <p class="card-header-title">
-                                    Exames
+                                  Inscrições em exame
                                 </p>
                                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -27,11 +30,14 @@
                                 <div class="content">
                                     <table class="table is-fullwidth is-striped">
                                         <tbody>
-                                            {% for exame in examesAluno %}
+                                            {% for key, value in alunos.items %}
                                             <tr>
-                                                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                                <td>{{exame.ucID.name}} || {{exame.date}} || {{exame.horaINI}} || {{exame.Duracao}}</td>
-                                                <td><a class="button is-small is-primary" href="#">Inscrever</a></td>
+                                                <th>{{ key }}</th>
+                                            </tr>
+                                              {% for j in value %}
+                                            <tr>
+                                                <td> {{ j.alunoID.user.full_name }}</td>
+                                              {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -47,7 +53,7 @@
                         <div class="card">
                             <header class="card-header">
                                 <p class="card-header-title">
-                                     Pesquisa por Ano
+                                     Alunos sem Turma
                                 </p>
                                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -55,47 +61,107 @@
                   </span>
                 </a>
                             </header>
-                            <div class="card-content">
+                            <div class="card-table">
                                 <div class="content">
-                                    <div class="control has-icons-left has-icons-right">
-                                        <input class="input is-large" type="text" placeholder="">
-                                        <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                                        <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
-                                    </div>
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th><p>Aluno</p></th>
+                                            </tr>
+                                            {% for item in unidades %}
+                                              {% for i in item %}
+                                                {% if i.aula == null %}
+                                                <tr>
+                                                  <td>{{ i.aluno.user.full_name }}</td>
+                                                </tr>
+                                                {% endif %}
+                                              {% endfor %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    Pesquisa por Disciplina
-                                </p>
-                                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    <div class="control has-icons-left has-icons-right">
-                                        <input class="input is-large" type="text" placeholder="">
-                                        <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
+                          </div>
+                  </div>
+                  </div>
+                  <div class="columns">
+                      <div class="column is-6">
+                          <div class="card events-card">
+                              <header class="card-header">
+                                  <p class="card-header-title">
+                                    Inscrições na Cadeira
+                                  </p>
+                                  <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </span>
-                                        <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
+                  </a>
+                              </header>
+                              <div class="card-table">
+                                  <div class="content">
+                                      <table class="table is-fullwidth is-striped">
+                                          <tbody>
+                                              <tr>
+                                                  <th><p>Aluno</p></th>
+                                              </tr>
+                                              {% for item in unidades %}
+                                                {% for i in item %}
+                                                  <tr>
+                                                    <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                                    <td>{{ i.aluno.user.full_name }}</td>
+                                                  </tr>
+                                                  {% endfor %}
+                                              {% endfor %}
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                              <footer class="card-footer">
+                                  <a href="#" class="card-footer-item">View All</a>
+                              </footer>
+                          </div>
+                      </div>
+
+                            <div class="column is-6">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">
+                                             Disciplinas do professor
+                                        </p>
+                                        <a href="#" class="card-header-icon" aria-label="more options">
+                          <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                                    </header>
+                                    <div class="card-table">
+                                        <div class="content">
+                                            <table class="table is-fullwidth is-striped">
+                                                <tbody>
+                                                    {% for item in turmas %}
+                                                    <tr>
+                                                        <th><p>{{item.name}}</p></th>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    <!-- {% for item in aulas %}
+
+                                                        <tr>
+                                                          <td>{{ item.aula.type }}</td>
+                                                        </tr> -->
+
+                                                    <!-- {% endfor %} -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
+                                  </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-</div>
+
+                          </div>
+
+                    
+
 </section>
 <style type="text/css">
   .card {

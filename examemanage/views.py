@@ -15,15 +15,34 @@ i = []
 def get_exams(request):
     global i
     examesAluno = []
+    aulas = []
+    exames = []
+    alunos = {}
+    unidades = []
+    turmas = []
 
     user = request.user
-    query_all = AlunoAulaUC.objects.all()
-    query_aluno = AlunoAulaUC.objects.filter(aluno = user.profile)
-    for each in query_aluno:
-        examesAluno.append(Exame.objects.get(ucID = each.uc))
-    return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno, 'user': user, 'inscricoes': i })
-    # elif user.is_teacher == True:
-    #     # return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno},)
+    if user.is_student == True:
+        query_all = AlunoAulaUC.objects.all()
+        query_aluno = AlunoAulaUC.objects.filter(aluno = user.profile)
+        for each in query_aluno:
+            examesAluno.append(Exame.objects.get(ucID = each.uc))
+        return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno, 'user': user, 'inscricoes': i })
+    elif user.is_teacher == True:
+        query_aulas = ProfessorAula.objects.filter(profID = user.profile)
+        query_turmas = ProfessorAula.objects.filter(profID = user.profile)
+        for each in query_aulas:
+            aulas.append(UnidadeCurricular.objects.get(id = each.uc_id.id))
+        for each in query_turmas:
+            turmas.append(UnidadeCurricular.objects.get(id = each.uc_id.id))
+        for each in turmas:
+            unidades.append(AlunoAulaUC.objects.filter(uc = each.id))
+        for each in aulas:
+            exames.append(Exame.objects.get(ucID = each.id))
+        for each in exames:
+            if ExameAluno.objects.filter(exameID = each.id) not in alunos.values():
+                alunos[each.ucID.name] = ExameAluno.objects.filter(exameID = each.id)
+        return render(request, 'examemanage/prof_exams.html',{'alunos': alunos, 'unidades': unidades, 'turmas': turmas, 'aulas': query_turmas})
     #     return ''
 
 def inscrever(request, id):
