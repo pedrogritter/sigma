@@ -79,7 +79,7 @@ from userprofiles.models import Profile
 class UpdateProfileForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user','image','personal_id','address','family','birthdate']
+        exclude = ['user','image','personal_id','address','family','birthdate','chairs','is_signed']
 
 class SignChairsForm(forms.Form):
     cadeiras = forms.MultipleChoiceField(choices=[(chairs.id, chairs.name) for chairs in UnidadeCurricular.objects.filter(cursoID = '13')], widget=forms.CheckboxSelectMultiple())

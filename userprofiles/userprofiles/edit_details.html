@@ -1,12 +1,20 @@
 {% extends "userprofiles/profile_base.html" %}
 {% block profile %}
 <!-- Change Password -->
+
+<div class="columns is-centered">
+
 <div class="container">
-    <form method="post">
-      {% csrf_token %}
-      {{form}}
-      <br>
-      <button class="button is-medium" type="submit">Save changes</button>
-    </form>
+   <div class="notification has-text-dark">
+      <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <br>
+        <br>
+        <button class="button is-medium  is-primary" type="submit">Save changes</button>
+      </form>
+    </div>
+</div>
+
 </div>
 {% endblock %}
