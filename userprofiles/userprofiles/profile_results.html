@@ -1,0 +1,159 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+
+<script type="text/javascript">
+      function toggleStuff(id,class_toggle) {
+        var element = document.getElementById(id)
+
+        if (element.classList) {
+              element.classList.toggle(class_toggle);
+              }
+        }
+  </script>
+
+<section class="section">
+  <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+          <div class="container">
+              <h1 class="title">
+                  Aqui podes consultar os teus resultados e curriculo.
+              </h1>
+          </div>
+      </div>
+  </section>
+  <section class="section">
+    <div class="columns is-mobile is-multiline">
+      <div class="column is-4">
+        <a class="button is-large is-fullwidth" onclick="toggleStuff('table1','is-hidden')">Período Corrente</a>
+      </div>
+      <div class="column is-4">
+        <a class="button is-large is-fullwidth" onclick="toggleStuff('table2','is-hidden')">Currículo</a>
+      </div>
+      <div class="column is-4">
+        <a class="button is-large is-fullwidth" onclick="toggleStuff('disciplinas','is-hidden')">Disciplinas Concluídas</a>
+      </div>
+    </div>
+  </section>
+
+</section>
+<section class="section resultsection">
+  <div class="container">
+    <div class="content">
+        <table class="table is-hidden" id="table1">
+          <thead>
+            <tr>
+              <th><abbr title="Position">Disciplinas</abbr></th>
+              <th>Data</th>
+              <th><abbr title="Played">Ano</abbr></th>
+              <th><abbr title="Won">Créditos</abbr></th>
+              <th><abbr title="Drawn">Classificação</abbr></th>
+              <th><abbr title="Lost">Ranking</abbr></th>
+              <th><abbr title="Goals for">Aprovação</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Programação1</th>
+              <td>11/1/2019
+              </td>
+              <td>1º</td>
+              <td>6</td>
+              <td>15</td>
+              <td>23/87</td>
+              <td>Aprovado</td>
+          </tr>
+          <tr>
+              <th>Sistemas Operativos</th>
+              <td>18/1/2019
+              </td>
+              <td>2º</td>
+              <td>6</td>
+              <td>13</td>
+              <td>42/97</td>
+              <td>Aprovado</td>
+          </tr>
+          <tr>
+              <th>Programação Centrada em Objectos</th>
+              <td>22/1/2019
+              </td>
+              <td>2º</td>
+              <td>6</td>
+              <td>16</td>
+              <td>12/97</td>
+              <td>Aprovado</td>
+          </tr>
+          <tr>
+              <th>CSS</th>
+              <td>24/1/2019
+              </td>
+              <td>3º</td>
+              <td>6</td>
+              <td>14</td>
+              <td>21/97</td>
+              <td>Aprovado</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table is-hidden" id="table2">
+        <thead>
+          <tr>
+            <th><abbr title="Nº">Nº de Aluno</abbr></th>
+            <th>Nome</th>
+            <th><abbr title="Ano">Ano</abbr></th>
+            <th><abbr title="Matrícula">Matrícula</abbr></th>
+            <th><abbr title="CR">Créditos Concluídos</abbr></th>
+            <th><abbr title="CP">Créditos por Concluir</abbr></th>
+            <th><abbr title="Média">Média</abbr></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>12345</th>
+            <td>Utilizador1
+            </td>
+            <td>3º</td>
+            <td>4ª</td>
+            <td>130</td>
+            <td>50</td>
+            <td>14.8</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table is-hidden" id="disciplinas">
+      <thead>
+        <tr>
+          <th><abbr title="Nº">Disciplinas Concluídas</abbr></th>
+          <th>Classificação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>ITW</th>
+          <td>18
+          </td>
+        </tr>
+        <tr>
+          <th>Redes de Computadores</th>
+          <td>14
+          </td>
+        </tr>
+        <tr>
+          <th>Arquitectura de Computadores</th>
+          <td>16
+          </td>
+        </tr>
+        <tr>
+          <th>Teoria da Computação</th>
+          <td>12
+          </td>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+
+
+</section>
+{% endblock %}

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'compressor',
     'pages',
     'userauth',
+    'userprofiles',
+    'ucmanage',
 ]
 
 AUTH_USER_MODEL = "userauth.User" # change builtin user model to our CustomUser
@@ -61,13 +63,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'sigma.urls'
 
-LOGIN_REDIRECT_URL = 'landing'
+LOGIN_URL = 'auth/login/'
+#LOGIN_REDIRECT_URL = 'authentication'
 LOGOUT_REDIRECT_URL = 'landing'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['pages/', 'userauth/'],
+        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,6 +167,11 @@ STATICFILES_FINDERS = (
     # other finders..
     'compressor.finders.CompressorFinder',
 )
+
+#Django file storage location
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+MEDIA_URL = '/media/'
 
 
 # Activate Django-Heroku.

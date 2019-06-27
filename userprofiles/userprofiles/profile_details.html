@@ -1,0 +1,63 @@
+{% extends "userprofiles/profile_base.html" %}
+{% block profile %}
+<!-- Edit preferences modal -->
+<div id="detail_modal" class="modal">
+    <div class="modal-card">
+       <header class="modal-card-head">
+         <p class="modal-card-title">Edit Details</p>
+         <button class="delete" onclick="toggleStuff('detail_modal','is-active')"></button>
+       </header>
+       <section class="modal-card-body has-text-dark">
+         <!-- Content -->
+         <form method="post">
+          {{form}}
+          <br>
+          <a class="button is-success" type="submit">Save changes</a>
+          </form>
+       </section>
+       <footer class="modal-card-foot">
+         <a class="button is-success" type="submit" value="submit" href="{% url 'profile_details' %}">Save changes</a>
+         <a class="button" onclick="toggleStuff('detail_modal','is-active')">Cancel</a>
+       </footer>
+   </div>
+</div>
+  <!-- Edit prefrences modal -->
+<div class="container">
+  <!-- This button should eventually be transfered to profile details page -->
+  <!-- <a class="edit-preferences button is-primary is-outlined" onclick="toggleStuff('detail_modal','is-active')">Edit details</a> -->
+  <a class="edit-preferences button is-danger is-outlined" href="{% url 'change_password' %}">Change Password</a>
+  <a class="edit-preferences button is-primary is-outlined" href="{% url 'edit_details' %}">Edit details</a>
+
+  <br>
+</div>
+<br>
+<div class="columns is-mobile is-multiline">
+  <div class="column is-two-fifths">
+      <div class="box">
+        <p> <b>Name</b>: {{user.profile.name}}</p>
+        <p><b>Surname</b>: {{user.profile.surname}}</p>
+        <p><b>Birthdate</b>: {{user.profile.birthdate}}</p>
+        <p><b>Country</b>: {{user.profile.address.country}}</p>
+
+      </div>
+  </div>
+  <div class="column">
+      <!-- two lines -->
+      <div class="box">
+          <p><b>ID</b>: {{user.profile.personal_id.id_number}}</p>
+          <p><b>ID Type</b>: {{user.profile.personal_id.id_type}}</p>
+          <p><b>Fiscal ID</b>: {{user.profile.personal_id.fiscal_id}}</p>
+      </div>
+      <div class="box">
+          <p><b>Profession</b>: {{user.profile.profession}}</p>
+          <p><b>Email</b>: {{user.profile.personal_email}}</p>
+          <p><b>Website</b>: {{user.profile.personal_website}}</p>
+      </div>
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "pages/base.html" %}
+{% block content %}
+<div class="container">
+<div class="columns is-centered">
+  <div class="container profile">
+
+      <!-- Profile Heading  -->
+      <section class=" section profile-heading">
+          <div class="columns is-mobile is-multiline">
+              <div class="column is-2">
+                <span class="header-icon user-profile-image">
+                  <div class="image is-128x128">
+                    <img class="is-rounded" src="{{ user.profile.image.url }}">
+                  </div>
+                </span>
+                </div>
+
+                <div class="column is-4-table is-10-mobile name">
+                    <span class="title is-bold"> {{ user.profile.name }} {{user.profile.surname}} </span>
+                    <br>
+                    <br>
+                    <p class="tagline">
+                      The users brief description or bio should be represented here.
+                    </p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">1</p>
+                    <p class="stat-key">Years</p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">20</p>
+                    <p class="stat-key">Exams</p>
+                </div>
+                <div class="column is-2-tablet is-4-mobile has-text-centered">
+                    <p class="stat-val">5</p>
+                    <p class="stat-key">Cadeiras</p>
+                </div>
+
+          </div>
+      </section>
+      <!-- END PROFILE HEADING -->
+      <div class="profile-options is-fullwidth">
+          <div class="tabs is-fullwidth is-medium">
+              <ul>
+                <li class="link">
+                  <a href="{% url 'get_profile' %}">
+                      <span>Home</span>
+                  </a>
+                </li>
+                <li class="link">
+
+                  <a href="{% url 'profile_details' %}">
+                      <span>Personal Details</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="{% url 'profile_schedule' %}">
+                      <span>Schedule</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="{% url 'profile_exams' %}">
+                      <span>Exams</span>
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="{% url 'profile_results' %}">
+                      <span>Results</span>
+                  </a>
+                </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+{% block profile %}{% endblock %}
+</div>
+{% endblock %}
