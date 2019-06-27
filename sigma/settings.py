@@ -172,7 +172,6 @@ MEDIA_URL = '/media/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES = { 'default': dj_database_url.config(ssl_require=False) }
-#ssl_require = on
-# DATABASES['default'] = dj_database_url.config(conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=True)
+
+#Uncomment on heroku
+#DATABASES = { 'default': dj_database_url.config(ssl_require=False) }
