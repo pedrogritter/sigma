@@ -27,6 +27,7 @@
             <th>Quarta</th>
             <th>Quinta</th>
             <th>Sexta</th>
+            <th>Sabado</th>
           </tr>
         </thead>
         <tbody>
@@ -48,6 +49,47 @@
       </table>
 
     </div>
+
+    <!-- <div class="container">
+      <h1>Troca de Aulas</h1> <br>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >SUBMIT</button>
+      </form>
+      <h2>{{ text }}</h2>
+
+    </div> -->
+
+    <button class="button is-danger" onclick="toggleStuff('pedido_troca','is-active')">Trocar de turnos</button>
+
+    <!-- Edit preferences modal -->
+    <div id="pedido_troca" class="modal">
+        <div class="modal-card">
+           <header class="modal-card-head">
+             <p class="modal-card-title">Troca de Turnos</p>
+             <button class="delete" onclick="toggleStuff('pedido_troca','is-active')"></button>
+           </header>
+           <section class="modal-card-body">
+             <!-- Content ... -->
+             <!-- <label for="label">Name</label>
+             <p class="control has-icon has-icon-right">
+              <input type="text" class="input" placeholder="Change name">
+             </p> -->
+             <form method="post">
+             {% csrf_token %}
+              {{form.as_p}}
+              </form>
+             <!-- Content -->
+           </section>
+           <footer class="modal-card-foot">
+             <a class="button is-success" type="submit">Save changes</a>
+             <a class="button" onclick="toggleStuff('pedido_troca','is-active')">Cancel</a>
+           </footer>
+       </div>
+    </div>
+      <!-- Edit prefrences modal -->
+
   </div>
 </section>
 
