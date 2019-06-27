@@ -3,19 +3,36 @@ from django.contrib.auth.decorators import login_required
 from ucmanage import views as uc_views
 # from .forms import ProfileEditFrom
 from userprofiles.models import Profile
-from .forms import UpdateProfileForm
+from .forms import UpdateProfileForm, SignChairsForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
+from ucmanage.models import UnidadeCurricular
+from userprofiles.models import Profile
 
 
 
 # Create your views here.
 @login_required(login_url='../auth/login/', redirect_field_name=None)
 def get_profile(request):
-    if request.user:
-        return render(request,'userprofiles/profile_page.html')
+    user = request.user
 
+    if user.profile.is_signed == True:
+
+        cadeiras_user = user.profile.chairs
+        cadeira_object_list = []
+        #c = 0
+        for cadeira in cadeiras_user:
+            cadeira=UnidadeCurricular.objects.filter(id=str(cadeira))
+            cadeira_object_list.append(cadeira)
+            #print(cadeira)
+            # cadeira_object_dict.update(cadeira.name : cadeira})
+            #cadeira_object_dict[c] = cadeira
+            #c += 1
+
+        return render(request,'userprofiles/profile_page.html', {'lista_cadeiras':cadeira_object_list})
+    else:
+        return render(request,'userprofiles/profile_page.html')
 # All profile edit forms  in None
 # Edit profile forms
 # @login_required
@@ -89,6 +106,28 @@ def edit_details(request):
     else:
         form = UpdateProfileForm(instance=profile)
     return render(request,'userprofiles/edit_details.html',{'form': form})
+
+
+# Signed Form
+@login_required(login_url='../auth/login/', redirect_field_name=None)
+def sign_chairs(request):
+
+    if request.method == 'POST':
+        print('ola')
+        form = SignChairsForm(request.POST)
+        if form.is_valid():
+            cadeiras = form.cleaned_data['cadeiras']
+            request.user.profile.chairs = cadeiras
+            request.user.profile.is_signed = True
+            request.user.profile.save()
+            print(request.user.profile.chairs)
+
+        else:
+            messages.error(request, 'Number of Chairs wrong!')
+    else:
+        form = SignChairsForm()
+
+    return render(request, 'userprofiles/profile_sign.html', {'form': form})
 
 #Schedule
 @login_required(login_url='../auth/login/', redirect_field_name=None)
