@@ -1,0 +1,296 @@
+// Base CSS
+
+html,
+body {
+  font-family: 'Open Sans', serif;
+}
+
+.hero.is-info {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://unsplash.it/1200/900?random') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.hero .nav,
+.hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5;
+  .footer {
+    height: 5%
+  }
+}
+.footer-widgets {
+}
+
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+
+//SliderMenu CSS
+// html,
+// body {
+//     background-color: lightcyan;
+// }
+#slider {
+  z-index: 500;
+  
+}
+
+
+.menu {
+    $root: &;
+
+
+    &__burger {
+        $burger: #{$root}__burger;
+        width: 50px;
+        height: 50px;
+        left: 20px;
+        top: 50px;
+        position: fixed;
+        cursor: pointer;
+        z-index: 99;
+
+        &__span {
+            position: absolute;
+            height: 5px;
+            width: inherit;
+            background-color: #fff;
+            transition: all 0.2s;
+            &:before {
+                @extend #{$burger}__span;
+                content: "";
+                top: -10px;
+            }
+            &:after {
+                @extend #{$burger}__span;
+                content: "";
+                top: 10px;
+            }
+        }
+        &--open {
+            #{$burger}__span {
+                background-color: transparent;
+                &:before,
+                &:after {
+                    background-color: #fff;
+                    transform-origin: 0 50%;
+
+                }
+                &:before {
+                    transform: translateX(7px) translateY(-5px) rotate(45deg);
+                }
+                &:after {
+                    transform: translateX(7px) translateY(10px) rotate(-45deg);
+                }
+            }
+        }
+    }
+    &__nav {
+        position: absolute;
+        top: 0;
+        left: -25%;
+        height: 100%;
+        width: 15%;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-color: #333;
+        transition: all 0.3s;
+        z-index: 98;
+
+        @media screen and (max-width: 1100px) {
+            width: 90%;
+            left: -90%;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: 1200px) and (min-width: 768px){
+            width: 30%;
+            left: -90%;
+            font-size: 1.5rem;
+        }
+
+
+
+        &--open {
+            left: 0;
+        }
+    }
+    &__list {
+        list-style: none;
+        position: absolute;
+        top: 15%;
+        left: 25px;
+
+        &__item {
+            margin-left: 0;
+            margin-top: 20%;
+            font-size: 200px;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+    &__link {
+        text-decoration: none;
+        color: #ddd;
+        &:hover {
+            text-decoration: inherit;
+            color: #fff;
+        }
+    }
+}
+
+// notification
+
+#message-box {
+  position: absolute;
+  top: 8%;
+  margin-top: 5%;
+  right: 2%;
+}
+
+.float {
+  // z-index: 1;
+  animation-name: float;
+  -webkit-animation-name: float;
+  animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(8%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
+@-moz-keyframes float {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes float {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@-o-keyframes float {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+
+// Profile Base Page css
+
+
+  .stat-val {
+    font-size: 3em;
+    padding-top: 20px;
+    font-weight: bold;
+  }
+
+  .stat-key {
+    font-size: 1.4em;
+    font-weight: 200
+  }
+
+  .section.profile-heading .column.is-2-tablet.has-text-centered + .has-text-centered {
+    border-left: 1px dotted rgba(0, 0, 0, .2);
+  }
+
+  .container.profile {
+    margin-top: 1%;
+  }
+
+  .control.is-pulled-left span.select {
+    margin-right: 5px;
+    border-radius: 2px;
+  }
+
+  .modal-card .content h1 {
+    padding: 40px 10px 10px;
+    border-bottom: 1px solid #dadada
+  }
+
+  .container.profile .profile-options .tabs ul li.link a {
+    margin-bottom: 20px;
+    padding: 20px;
+    // background-color: #F1F1F1;
+  }
+
+
+  // Profile Pages css
+  // Home Pages
+
+  #weekly {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+.card {overflow:hidden}
+.card.large {
+height: 600px;
+-webkit-backface-visibility: hidden;
+backface-visibility: initial;
+border-radius: 5px;
+}
+.media-content {
+overflow: hidden;
+}
+.title.no-padding {
+margin-bottom: 0 !important;
+}
