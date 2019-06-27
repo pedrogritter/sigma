@@ -32,8 +32,9 @@ class UnidadeCurricular(models.Model):
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
-    def __str__(self):
+    def get_name(self):
         return self.name
+
 
 
 class Turno(models.Model):
@@ -68,6 +69,6 @@ class ProfessorAula(models.Model):
 class PedidoTroca(models.Model):
     aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
-    
+
     STATUS = (('Pendente','Pendente'),('Aceite','Aceite'),('Recusado','Recusado'))
     status = models.CharField(max_length=10, choices=STATUS, default = 'Pendente')

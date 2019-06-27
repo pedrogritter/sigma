@@ -18,7 +18,7 @@ urlpatterns = [
     path('results', profile_views.profile_results, name='profile_results'),
     path('change_password', profile_views.change_password, name='change_password'),
     path('edit_details', profile_views.edit_details, name='edit_details'),
-
+    path('sign_chairs', profile_views.sign_chairs, name='sign_chairs'),
 ]
 
 # if settings.DEBUG:
