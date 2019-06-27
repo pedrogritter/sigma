@@ -30,8 +30,8 @@ SECRET_KEY = '_9k6j!c((d^fda8x6oy@os=42bzu1^zm$7c0=sq!*))y5-1+yp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.sigma-alfa.herokuapp.com']
-
+#ALLOWED_HOSTS = ['.sigma-alfa.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -60,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'sigma.urls'
