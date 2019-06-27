@@ -35,7 +35,7 @@ class Profile(models.Model):
     profession = models.CharField(max_length=50, blank=True, null=True)
     personal_email = models.EmailField(verbose_name='personal email address', max_length=255, unique=True, blank=True, null=True)
     personal_website = models.CharField(max_length=30, blank=True, null=True)
-    chairs = ArrayField(models.CharField(max_length=4), blank=True)
+    chairs = ArrayField(models.CharField(max_length=4), blank=True,null=True)
     is_signed = models.BooleanField(default=False)
 
     #REQUIRED_FIELDS = ['name','surname','birthdate','country']

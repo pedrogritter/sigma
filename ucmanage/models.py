@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from userprofiles.models import Profile
+# from userauth.models import *
 
 # Create your models here.
 class Faculdade(models.Model):
@@ -28,7 +29,7 @@ class UnidadeCurricular(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)
     cursoID = models.ForeignKey("Curso", on_delete=models.CASCADE, blank=True,null=True)
-    #regente
+    # regente = models.ForeignKey("userauth.User", on_delete=models.CASCADE, blank=True,null=True)
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
