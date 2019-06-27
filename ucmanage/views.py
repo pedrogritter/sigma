@@ -8,7 +8,7 @@ from datetime import time, timedelta
 from ucmanage.models import *
 
 # Create your views here.
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def get_schedule(request):
     user = request.user
     query_all = AlunoAulaUC.objects.all()

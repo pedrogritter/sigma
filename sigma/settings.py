@@ -63,7 +63,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'sigma.urls'
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_URL = 'auth/login/'
+#LOGIN_REDIRECT_URL = 'authentication'
 LOGOUT_REDIRECT_URL = 'landing'
 
 TEMPLATES = [

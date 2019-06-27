@@ -9,9 +9,10 @@ from django.contrib import messages
 
 
 # Create your views here.
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def get_profile(request):
-    return render(request,'userprofiles/profile_page.html')
+    if request.user:
+        return render(request,'userprofiles/profile_page.html')
 
 # All profile edit forms  in None
 # Edit profile forms
@@ -33,7 +34,7 @@ def get_profile(request):
 
 
 # Edit profile forms
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def profile_details(request):
     if request.method=="POST":
         form = ProfileEditFrom(request.POST)
@@ -48,6 +49,7 @@ def profile_details(request):
     return render(request,'userprofiles/profile_details.html',{'form': form})
 
 # Password change
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def change_password(request):
     if request.method == 'POST':
         password_form = PasswordChangeForm(request.user, request.POST)
@@ -65,17 +67,17 @@ def change_password(request):
 
 
 #Schedule
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def profile_schedule(request):
     return redirect(views.profile_schedule)
     # return render(request, 'userprofiles/profile_schedule.html')
 
 #Exams
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def profile_exams(request):
     return render(request,'userprofiles/profile_exams.html')
 
 # Results views
-@login_required
+@login_required(login_url='../auth/login/', redirect_field_name=None)
 def profile_results(request):
     return render(request, 'userprofiles/profile_results.html')
