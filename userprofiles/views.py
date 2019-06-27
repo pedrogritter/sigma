@@ -5,14 +5,32 @@ from .forms import ProfileEditFrom, SignChairsForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
+from ucmanage.models import UnidadeCurricular
+from userprofiles.models import Profile
 
 
 
 # Create your views here.
 @login_required
 def get_profile(request):
-    return render(request,'userprofiles/profile_page.html')
+    user = request.user
 
+    if user.profile.is_signed == True:
+
+        cadeiras_user = user.profile.chairs
+        cadeira_object_list = []
+        #c = 0
+        for cadeira in cadeiras_user:
+            cadeira=UnidadeCurricular.objects.filter(id=str(cadeira))
+            cadeira_object_list.append(cadeira)
+            #print(cadeira)
+            # cadeira_object_dict.update(cadeira.name : cadeira})
+            #cadeira_object_dict[c] = cadeira
+            #c += 1
+
+        return render(request,'userprofiles/profile_page.html', {'lista_cadeiras':cadeira_object_list})
+    else:
+        return render(request,'userprofiles/profile_page.html')
 # All profile edit forms  in None
 # Edit profile forms
 # @login_required
@@ -64,7 +82,9 @@ def change_password(request):
 
 # Signed Form
 def sign_chairs(request):
+
     if request.method == 'POST':
+        print('ola')
         form = SignChairsForm(request.POST)
         if form.is_valid():
             cadeiras = form.cleaned_data['cadeiras']
