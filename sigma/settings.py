@@ -175,4 +175,4 @@ MEDIA_URL = '/media/'
 django_heroku.settings(locals())
 
 #Uncomment on heroku
-#DATABASES = { 'default': dj_database_url.config(ssl_require=False) }
+DATABASES = { 'default': dj_database_url.config(ssl_require=False) }
