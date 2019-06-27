@@ -38,10 +38,13 @@ def get_profile(request):
 def profile_details(request):
     if request.method=="POST":
         form = ProfileEditFrom(request.POST)
-        if form.is_valid():
-            pass
-            # DO something
-            edit = form.save()
+        if request.method=="POST":
+            form = ProfileEditFrom(request.POST)
+            if form.is_valid():
+                details = form.clean()
+                # DO something
+                edit = details.save()
+                messages.success(request, 'Your details where successfully updated!')
         else:
             messages.error(request, 'Please correct the error below.')
     else:

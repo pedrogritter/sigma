@@ -8,13 +8,13 @@ class ProfileEditFrom(forms.Form):
 
     name = forms.CharField(
         max_length=50,
-        widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right',
+        widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right is-pulled-left',
                 'placeholder':'Change name'})
     )
 
     surname =  forms.CharField(
         max_length=100,
-        widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right',
+        widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right is-pulled-left',
                 'placeholder':'Change surname'})
     )
 
@@ -28,19 +28,19 @@ class ProfileEditFrom(forms.Form):
 
     profession = forms.CharField(
             max_length=50,
-            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right',
+            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right is-pulled-left',
                     'placeholder':'Change profession'})
         )
 
     personal_email = forms.EmailField(
             max_length=255,
-            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right',
+            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right is-pulled-left',
                     'placeholder':'Change email'})
     )
 
     personal_website = forms.CharField(
             max_length=30,
-            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right',
+            widget = forms.TextInput(attrs={'style':'control has-icon has-icon-right is-pulled-left',
                     'placeholder':'Change website'})
     )
 

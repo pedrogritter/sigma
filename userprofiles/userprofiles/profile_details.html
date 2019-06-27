@@ -7,12 +7,7 @@
          <p class="modal-card-title">Edit Details</p>
          <button class="delete" onclick="toggleStuff('detail_modal','is-active')"></button>
        </header>
-       <section class="modal-card-body">
-         <!-- Content ... -->
-         <!-- <label for="label">Name</label>
-         <p class="control has-icon has-icon-right">
-          <input type="text" class="input" placeholder="Change name">
-         </p> -->
+       <section class="modal-card-body has-text-dark">
           {{form}}
          <!-- Content -->
        </section>
@@ -23,32 +18,6 @@
    </div>
 </div>
   <!-- Edit prefrences modal -->
-  <!-- Change Password -->
-  <div id="change_password_modal" class="modal">
-    <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Edit Details</p>
-          <button class="delete" onclick="toggleStuff('change_password_modal','is-active')"></button>
-        </header>
-        <section class="modal-card-body">
-           <!-- Content -->
-           <form method="post">
-           {% csrf_token %}
-           {{password_form}}
-           <button type="submit">Save changes</button>
-         </form>
-           <!-- Content -->
-        </section>
-        <footer class="modal-card-foot">
-           <button class="button is-success" type="submit">Save changes</button>
-           <a class="button" onclick="toggleStuff('change_password_modal','is-active')">Cancel</a>
-        </footer>
-    </div>
-</div>
-
-
-
-  <!-- Change Password -->
 <div class="container">
   <!-- This button should eventually be transfered to profile details page -->
   <a class="edit-preferences button is-primary is-outlined" onclick="toggleStuff('detail_modal','is-active')">Edit details</a>
