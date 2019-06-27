@@ -6,14 +6,23 @@ from userprofiles.models import Profile
 class Faculdade(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 class Departamento(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     fac = models.ForeignKey("Faculdade", on_delete=models.CASCADE, blank=True,null=True)
+
+    def __str__(self):
+        return self.name
 
 class Curso(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)
     dep = models.ForeignKey("Departamento", on_delete=models.CASCADE, blank=True,null=True)
+
+    def __str__(self):
+        return self.name
 
 class UnidadeCurricular(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
@@ -23,11 +32,17 @@ class UnidadeCurricular(models.Model):
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 
 class Turno(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)
     ucID =  models.ForeignKey("UnidadeCurricular", on_delete=models.CASCADE, blank=True,null=True)
+
+    def __str__(self):
+        return self.name + " | " + self.ucID.name
 
 class Aula(models.Model):
     TYPE_AULA = (('LAB','Laboratorial'),('P','Pratica'),('T','Teorica'),('TP','Teorico-Pratica'))
@@ -38,10 +53,8 @@ class Aula(models.Model):
     horaFIM = models.TimeField()
     diaSemana = models.CharField(max_length=3, choices=DAY_CHOICES)
 
-class Presenca(models.Model):
-    aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
-    alunoID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
-    date = models.DateField()
+    def __str__(self):
+        return str(self.turnoID) + " - " + self.type
 
 class AlunoAulaUC(models.Model):
     aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
@@ -49,5 +62,12 @@ class AlunoAulaUC(models.Model):
     aula = models.ForeignKey('Aula', on_delete=models.CASCADE, blank=True,null=True)
 
 class ProfessorAula(models.Model):
-    profID = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
-    aulaID = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    prof = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
+    aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+
+class PedidoTroca(models.Model):
+    aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
+    aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    
+    STATUS = (('Pendente','Pendente'),('Aceite','Aceite'),('Recusado','Recusado'))
+    status = models.CharField(max_length=10, choices=STATUS, default = 'Pendente')

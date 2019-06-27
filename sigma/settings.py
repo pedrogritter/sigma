@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'userauth',
     'userprofiles',
     'ucmanage',
+    'presences',
     'django_q'
 ]
 
@@ -73,7 +74,7 @@ LOGOUT_REDIRECT_URL = 'landing'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/'],
+        'DIRS': ['pages/', 'userauth/','userprofiles/','ucmanage/', 'presences/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
