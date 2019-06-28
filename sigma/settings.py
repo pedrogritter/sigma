@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'userprofiles',
     'ucmanage',
     'presences',
-    'django_q'
+    'django_q',
     'examemanage',
 ]
 
