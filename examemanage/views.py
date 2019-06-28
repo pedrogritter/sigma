@@ -29,8 +29,8 @@ def get_exams(request):
             examesAluno.append(Exame.objects.get(ucID = each.uc))
         return render(request, 'examemanage/exams_page.html',{'exam_list': examesAluno, 'user': user, 'inscricoes': i })
     elif user.is_teacher == True:
-        query_aulas = ProfessorAula.objects.filter(profID = user.profile)
-        query_turmas = ProfessorAula.objects.filter(profID = user.profile)
+        query_aulas = ProfessorAula.objects.filter(prof = user.profile)
+        query_turmas = ProfessorAula.objects.filter(prof = user.profile)
         for each in query_aulas:
             aulas.append(UnidadeCurricular.objects.get(id = each.uc_id.id))
         for each in query_turmas:
