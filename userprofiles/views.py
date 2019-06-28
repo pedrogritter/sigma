@@ -113,14 +113,14 @@ def edit_details(request):
 def sign_chairs(request):
 
     if request.method == 'POST':
-        print('ola')
+
         form = SignChairsForm(request.POST)
         if form.is_valid():
             cadeiras = form.cleaned_data['cadeiras']
             request.user.profile.chairs = cadeiras
             request.user.profile.is_signed = True
             request.user.profile.save()
-            print(request.user.profile.chairs)
+            return redirect('get_profile')
 
         else:
             messages.error(request, 'Number of Chairs wrong!')
