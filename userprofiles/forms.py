@@ -10,7 +10,7 @@ from userprofiles.models import Profile
 class UpdateProfileForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user','image','personal_id','address','family','birthdate']
+        exclude = ['user','image','personal_id','address','family','birthdate','chair','is-signed']
 
 class SignChairsForm(forms.Form):
 
