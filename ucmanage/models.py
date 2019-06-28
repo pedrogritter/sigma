@@ -66,7 +66,7 @@ class AlunoAulaUC(models.Model):
 class ProfessorAula(models.Model):
     prof = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
-    uc = models.ForeignKey("UnidadeCurricular", blank=True,null=True)
+    uc = models.ForeignKey("UnidadeCurricular",, on_delete=models.CASCADE, blank=True,null=True)
 
 class PedidoTroca(models.Model):
     aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
