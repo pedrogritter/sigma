@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('profile/', include('userprofiles.urls')),
     path('presences/', include('presences.urls')),
+    path('exams/', include('examemanage.urls')),
 ]
 
 

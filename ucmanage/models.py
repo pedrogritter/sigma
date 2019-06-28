@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from userprofiles.models import Profile
+# from userauth.models import *
 
 # Create your models here.
 class Faculdade(models.Model):
@@ -28,7 +29,7 @@ class UnidadeCurricular(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     abv = models.CharField(max_length=10, blank=True, null=True)
     cursoID = models.ForeignKey("Curso", on_delete=models.CASCADE, blank=True,null=True)
-    #regente
+    # regente = models.ForeignKey("userauth.User", on_delete=models.CASCADE, blank=True,null=True)
     ano = models.IntegerField()
     semestre = models.IntegerField()
 
@@ -65,6 +66,8 @@ class AlunoAulaUC(models.Model):
 class ProfessorAula(models.Model):
     prof = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)
     aula = models.ForeignKey("Aula", on_delete=models.CASCADE, blank=True,null=True)
+    uc_id = models.ForeignKey('UnidadeCurricular', on_delete=models.CASCADE, blank=True,null=True)
+
 
 class PedidoTroca(models.Model):
     aluno = models.ForeignKey('userprofiles.Profile', on_delete=models.CASCADE, blank=True,null=True)

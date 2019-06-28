@@ -1,5 +1,16 @@
 {% extends "userprofiles/profile_base.html" %}
 {% block profile %}
+<script type="text/javascript">
+      function toggleStuff(id,class_toggle) {
+        var element = document.getElementById(id)
+
+        if (element.classList) {
+              element.classList.toggle(class_toggle);
+              }
+        }
+      </script>
+
+
 <section class="section">
 <section class="hero is-info welcome is-small">
                     <div class="hero-body">
