@@ -1,7 +1,7 @@
 {% extends "userprofiles/profile_base.html" %}
 {% block profile %}
 
-<form method="post" action="{% url 'get_profile' %}">
+<form method="post">
   {% csrf_token %}
 
   {{ form }}
