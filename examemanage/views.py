@@ -32,9 +32,9 @@ def get_exams(request):
         query_aulas = ProfessorAula.objects.filter(prof = user.profile)
         query_turmas = ProfessorAula.objects.filter(prof = user.profile)
         for each in query_aulas:
-            aulas.append(UnidadeCurricular.objects.get(id = each.uc_id))
+            aulas.append(UnidadeCurricular.objects.get(id = each.uc_id.id))
         for each in query_turmas:
-            turmas.append(UnidadeCurricular.objects.get(id = each.uc_id))
+            turmas.append(UnidadeCurricular.objects.get(id = each.uc_id.id))
         for each in turmas:
             unidades.append(AlunoAulaUC.objects.filter(uc = each.id))
         for each in aulas:
